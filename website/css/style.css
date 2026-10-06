@@ -184,7 +184,9 @@ p, li, span, .text-muted-nx, .spec-list li, .card p, .accordion-body, .form-labe
 .carousel-inner {
   border-radius: 6px !important;
 }
-
+.button {
+  background-color: white;
+}
 .slide {
   height: clamp(260px, 45vw, 400px);
   display: grid;
@@ -203,6 +205,9 @@ p, li, span, .text-muted-nx, .spec-list li, .card p, .accordion-body, .form-labe
 
 .carousel-control-prev, .carousel-control-next {
   width: 8%;
+  color: lightgray;
+  border-color: lightgray;
+  filter: invert(1);
 }
 
 /* Tariffs Block (Assignment 3 Task 1 Pure CSS Grid) */
