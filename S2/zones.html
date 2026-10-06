@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REQUIEM — Zones &amp; Hardware</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top nx-nav">
+    <div class="container">
+      <a class="navbar-brand fs-3" href="index.html"><span class="grad-text">REQUIEM</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="zones.html">Zones &amp; Hardware</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Tariffs</a></li>
+          <li class="nav-item"><a class="nav-link" href="tournaments.html">Tournaments</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero hero-sm" aria-labelledby="zones-hero">
+    <div class="container">
+      <h1 id="zones-hero" class="display-4">Zones &amp; <span class="grad-text">Hardware</span></h1>
+      <p class="lead text-muted-nx col-lg-7 px-0">Four distinct play tiers — from solo grinds to team tournaments. Complete hardware specifications detailed below.</p>
+    </div>
+  </section>
+
+  <section class="section-pad pt-0" aria-label="Zones Catalog">
+    <div class="container">
+      <div class="d-flex flex-wrap gap-2 mb-4" role="group" aria-label="Zone Filters">
+        <button class="filter-btn active" data-filter="all">All Zones</button>
+        <button class="filter-btn" data-filter="solo">Solo Play</button>
+        <button class="filter-btn" data-filter="team">Team Boot Camp</button>
+      </div>
+
+      <div class="row g-4" id="zoneGrid">
+        <div class="col-12 col-md-6 col-lg-4 zone-item" data-type="solo" id="standard">
+          <article class="card glass h-100 border-0">
+            <div class="zone-art art-standard"><i class="bi bi-pc-display"></i></div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h4 text-white">Standard Zone</h2><span class="badge bg-purple">240 Hz</span>
+              </div>
+              <p class="text-muted-nx small">Fast gaming PCs for daily matchmaking and casual games.</p>
+              <ul class="spec-list">
+                <li><i class="bi bi-gpu-card"></i> NVIDIA GeForce RTX 4070</li>
+                <li><i class="bi bi-cpu"></i> Intel Core i7 14700F</li>
+                <li><i class="bi bi-display"></i> BenQ Zowie 240Hz 1ms</li>
+                <li><i class="bi bi-keyboard"></i> HyperX Alloy + Pulsefire Haste</li>
+                <li><i class="bi bi-person-workspace"></i> Ergonomic Titan Gaming Chair</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 zone-item" data-type="solo" id="comfort">
+          <article class="card glass h-100 border-0">
+            <div class="zone-art art-comfort"><i class="bi bi-controller"></i></div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h4 text-white">Comfort Zone</h2><span class="badge bg-purple">280 Hz</span>
+              </div>
+              <p class="text-muted-nx small">Wider desks, Fast IPS monitors, and ultralight wireless mice.</p>
+              <ul class="spec-list">
+                <li><i class="bi bi-gpu-card"></i> NVIDIA GeForce RTX 4080</li>
+                <li><i class="bi bi-cpu"></i> Intel Core i7 14700K</li>
+                <li><i class="bi bi-display"></i> ASUS ROG 280Hz Fast IPS</li>
+                <li><i class="bi bi-keyboard"></i> Logitech G Pro X Superlight</li>
+                <li><i class="bi bi-person-workspace"></i> DXRacer Master Series</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 zone-item" data-type="solo" id="vip">
+          <article class="card glass h-100 border-0">
+            <div class="zone-art art-vip"><i class="bi bi-gem"></i></div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h4 text-white">VIP Lounge</h2><span class="badge bg-purple">360 Hz</span>
+              </div>
+              <p class="text-muted-nx small">Flagship performance in a private sound-isolated atmosphere.</p>
+              <ul class="spec-list">
+                <li><i class="bi bi-gpu-card"></i> NVIDIA GeForce RTX 4090 24GB</li>
+                <li><i class="bi bi-cpu"></i> Intel Core i9 14900K</li>
+                <li><i class="bi bi-display"></i> Zowie XL2566K 360Hz DyAc 2</li>
+                <li><i class="bi bi-keyboard"></i> Wooting 60HE Rapid Trigger</li>
+                <li><i class="bi bi-person-workspace"></i> Secretlab Titan Evo 2024</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-6 zone-item" data-type="team" id="bootcamp">
+          <article class="card glass h-100 border-0">
+            <div class="zone-art art-boot"><i class="bi bi-people-fill"></i></div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h4 text-white">Boot Camp 5v5 Room</h2><span class="badge bg-purple">5 Stations</span>
+              </div>
+              <p class="text-muted-nx small">Dedicated soundproof suite designed for competitive esports squads.</p>
+              <ul class="spec-list">
+                <li><i class="bi bi-gpu-card"></i> 5x RTX 4090 Stations</li>
+                <li><i class="bi bi-diagram-3"></i> Dedicated Gigabit LAN Switch</li>
+                <li><i class="bi bi-easel"></i> Coach tactical analysis whiteboard</li>
+                <li><i class="bi bi-volume-mute"></i> Soundproofing acoustic treatment</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-6 zone-item" data-type="team" id="stream">
+          <article class="card glass h-100 border-0">
+            <div class="zone-art art-vip"><i class="bi bi-broadcast"></i></div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h4 text-white">Streaming Suite</h2><span class="badge bg-purple">Dual-PC</span>
+              </div>
+              <p class="text-muted-nx small">Studio setup prepared for Twitch / YouTube broadcasting.</p>
+              <ul class="spec-list">
+                <li><i class="bi bi-camera-video"></i> Sony Alpha Camera + Elgato Keylights</li>
+                <li><i class="bi bi-mic"></i> Shure SM7B + GoXLR Audio Interface</li>
+                <li><i class="bi bi-gpu-card"></i> Dual RTX 4090 Dedicated Stream Rig</li>
+                <li><i class="bi bi-display"></i> Triple Screen 360Hz + 4K Preview</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="nx-footer">
+  <div class="container text-center text-md-between d-md-flex align-items-center">
+    <p class="mb-0 text-muted-nx">&copy; 2026 REQUIEM. All rights reserved.</p>
+    <div class="mt-2 mt-md-0">
+      <a href="zones.html" class="me-3">Zones</a>
+      <a href="pricing.html" class="me-3">Tariffs</a>
+      <a href="booking.html">Booking</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

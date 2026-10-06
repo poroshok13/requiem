@@ -1,0 +1,498 @@
+BOOKING.HTML
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requiem — Бронирование ПК</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Google Fonts & Bootstrap Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-nexus text-light d-flex flex-column min-vh-100">
+
+    <!-- Единый Navbar проекта -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-nexus-nav sticky-top border-bottom border-purple">
+        <div class="container">
+            <a class="navbar-brand font-rajdhani fw-bold fs-3 text-uppercase text-gradient" href="booking.html">
+                <i class="bi bi-cpu text-cyan me-2"></i>REQUIEM
+            </a>
+            <button class="navbar-toggler border-purple" type="button" data-bs-toggle="collapse" data-bs-target="#nexusNav" aria-controls="nexusNav" aria-expanded="false" aria-label="Переключение навигации">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nexusNav">
+                <ul class="navbar-nav ms-auto font-rajdhani fs-5 fw-semibold">
+                    <li class="nav-item"><a class="nav-link active text-cyan" href="booking.html">Бронирование</a></li>
+                    <li class="nav-item"><a class="nav-link text-light-50 hover-cyan" href="about.html">О нас & Lounge</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный контейнер страницы -->
+    <main class="container py-5 flex-grow-1">
+        <!-- Шапка страницы -->
+        <header class="text-center mb-5">
+            <h1 class="font-rajdhani display-4 fw-bold text-uppercase text-gradient">Онлайн-бронирование ПК</h1>
+            <p class="lead text-light-50">Забронируй топовую сборку в клубе Requiem за 1 минуту</p>
+        </header>
+
+        <div class="row g-4">
+            <!-- Секция формы (Основная колонка) -->
+            <section class="col-lg-8">
+                <div class="card cyber-card p-4 p-md-5">
+                    <h2 class="h3 font-rajdhani text-cyan border-bottom border-secondary pb-3 mb-4">
+                        <i class="bi bi-controller me-2"></i>Заполните параметры игровой сессии
+                    </h2>
+
+                    <!-- Обязательная семантическая форма -->
+                    <form action="#" method="POST" id="bookingForm">
+                        
+                        <!-- Поле 1: Выбор игровой зоны -->
+                        <div class="mb-4">
+                            <label for="zoneSelect" class="form-label cyber-label">1. Игровая зона *</label>
+                            <select class="form-select cyber-input" id="zoneSelect" name="zone" required>
+                                <option value="" selected disabled>Выберите класс игровой зоны...</option>
+                                <option value="standard">Standard Zone (RTX 3060 / 240Hz)</option>
+                                <option value="comfort">Comfort Zone (RTX 4070 / 280Hz)</option>
+                                <option value="vip">VIP Lounge (RTX 4090 / 360Hz OLED)</option>
+                                <option value="bootcamp">Boot Camp 5v5 (Изолированная комната)</option>
+                            </select>
+                        </div>
+
+                        <!-- Поле 2 и 3: Дата и Время сессии -->
+                        <div
+[06.10.2026 00:06] Корейский Цой: class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label for="visitDate" class="form-label cyber-label">2. Дата посещения *</label>
+                                <input type="date" class="form-control cyber-input" id="visitDate" name="visit_date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="timePackage" class="form-label cyber-label">3. Длительность пакета *</label>
+                                <select class="form-select cyber-input" id="timePackage" name="package" required>
+                                    <option value="" selected disabled>Выберите пакет времени...</option>
+                                    <option value="3hours">3 часа (Стандарт)</option>
+                                    <option value="5hours">5 часов (Pro Gamer)</option>
+                                    <option value="night">Ночной пакет (22:00 - 08:00)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Поле 4: Количество игровых мест -->
+                        <div class="mb-4">
+                            <label for="seatCount" class="form-label cyber-label">4. Количество игровых мест *</label>
+                            <input type="number" class="form-control cyber-input" id="seatCount" name="seats" min="1" max="10" value="1" required>
+                            <div class="form-text text-muted">Доступно к брони от 1 до 10 ПК на одну заявку.</div>
+                        </div>
+
+                        <!-- Поле 5: Контактные данные -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <label for="userName" class="form-label cyber-label">5. Имя игрока *</label>
+                                <input type="text" class="form-control cyber-input" id="userName" name="user_name" placeholder="Данил" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="userPhone" class="form-label cyber-label">6. Номер телефона *</label>
+                                <input type="tel" class="form-control cyber-input" id="userPhone" name="user_phone" placeholder="+7 (7XX) XXX-XX-XX" pattern="^(\+7|8)7\d{9}$" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="userSocial" class="form-label cyber-label">7. Steam / Telegram</label>
+                                <input type="text" class="form-control cyber-input" id="userSocial" name="user_social" placeholder="@nickname">
+                            </div>
+                        </div>
+
+                        <!-- Поле 6: Дополнительные опции (Чекбоксы) -->
+                        <div class="mb-4">
+                            <span class="form-label cyber-label d-block mb-2">8. Дополнительные опции</span>
+                            <div class="form-check cyber-checkbox mb-2">
+                                <input class="form-check-input" type="checkbox" id="checkGear" name="addons[]" value="zowie_gear">
+                                <label class="form-check-label text-light" for="checkGear">
+                                    Аренда девайсов Zowie (Мышь / Наушники)
+                                </label>
+                            </div>
+                            <div class="form-check cyber-checkbox mb-2">
+                                <input class="form-check-input" type="checkbox" id="checkDrink" name="addons[]" value="energy_drink">
+                                <label class="form-check-label text-light" for="checkDrink">
+                                    Предзаказ энергетика / снеков к месту
+                                </label>
+                            </div>
+                            <div class="form-check cyber-checkbox">
+                                <input
+[06.10.2026 00:06] Корейский Цой: class="form-check-input" type="checkbox" id="checkAdminHelp" name="addons[]" value="admin_help">
+                                <label class="form-check-label text-light" for="checkAdminHelp">
+                                    Нужна помощь админа с установкой игры
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Поле 7: Комментарии -->
+                        <div class="mb-4">
+                            <label for="bookingComment" class="form-label cyber-label">9. Пожелания к бронированию</label>
+                            <textarea class="form-control cyber-input" id="bookingComment" name="comment" rows="3" placeholder="Укажите, если хотите сидеть рядом с друзьями или посадить команду вместе..."></textarea>
+                        </div>
+
+                        <!-- Кнопка отправки формы -->
+                        <button type="submit" class="btn btn-cyber-gradient w-100 font-rajdhani fw-bold fs-4 py-3 text-uppercase">
+                            <i class="bi bi-shield-check me-2"></i>Забронировать место
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Боковая информационная колонка (Summary Card) -->
+            <aside class="col-lg-4">
+                <div class="card cyber-card p-4 sticky-top" style="top: 90px;">
+                    <h3 class="h4 font-rajdhani text-purple border-bottom border-secondary pb-3 mb-3">
+                        <i class="bi bi-info-circle me-2"></i>Правила отмены
+                    </h3>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-2"><i class="bi bi-check2-circle text-cyan me-2"></i>Бесплатная отмена возможна за 2 часа до начала сессии.</li>
+                        <li class="mb-2"><i class="bi bi-check2-circle text-cyan me-2"></i>Бронь держится до 15 минут после выбранного времени.</li>
+                        <li><i class="bi bi-check2-circle text-cyan me-2"></i>При опоздании напишите администратору.</li>
+                    </ul>
+
+                    <div class="p-3 bg-dark-accent rounded border border-purple mb-3">
+                        <small class="text-cyan d-block fw-bold mb-1"><i class="bi bi-telephone-fill me-1"></i> Срочная связь с админом:</small>
+                        <a href="tel:+77001234567" class="text-light text-decoration-none fs-5 fw-bold font-rajdhani">+7 (700) 123-45-67</a>
+                    </div>
+
+                    <div class="p-3 bg-dark-accent rounded border border-secondary">
+                        <small class="text-purple d-block fw-bold mb-1"><i class="bi bi-clock-fill me-1"></i> Режим работы:</small>
+                        <span class="text-light fs-6">Круглосуточно 24/7 без выходных</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Единый Footer проекта -->
+    <footer class="bg-nexus-nav border-top border-purple py-4 mt-auto">
+        <div class="container text-center text-md-between d-md-flex align-items-center">
+            <p class="mb-0 text-muted font-rajdhani">&copy; 2026 REQUIEM Esports Club. Все права защищены.</p>
+            <div class="social-links mt-2 mt-md-0">
+                <a href="#" class="text-cyan me-3 fs-5" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+                <a href="#" class="text-purple me-3 fs-5" aria-label="Discord"><i class="bi bi-discord"></i></a>
+                <a href="#" class="text-cyan fs-5" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+[06.10.2026 00:06] Корейский Цой: ABOUT.HTML
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requiem — О клубе, Lounge & Правила</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Google Fonts & Bootstrap Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-nexus text-light d-flex flex-column min-vh-100">
+
+    <!-- Единый Navbar проекта -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-nexus-nav sticky-top border-bottom border-purple">
+        <div class="container">
+            <a class="navbar-brand font-rajdhani fw-bold fs-3 text-uppercase text-gradient" href="booking.html">
+                <i class="bi bi-cpu text-cyan me-2"></i>REQUIEM
+            </a>
+            <button class="navbar-toggler border-purple" type="button" data-bs-toggle="collapse" data-bs-target="#nexusNav" aria-controls="nexusNav" aria-expanded="false" aria-label="Переключение навигации">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nexusNav">
+                <ul class="navbar-nav ms-auto font-rajdhani fs-5 fw-semibold">
+                    <li class="nav-item"><a class="nav-link text-light-50 hover-cyan" href="booking.html">Бронирование</a></li>
+                    <li class="nav-item"><a class="nav-link active text-cyan" href="about.html">О нас & Lounge</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент страницы -->
+    <main class="flex-grow-1">
+        
+        <!-- Секция 1: О клубе REQUIEM -->
+        <section class="py-5 border-bottom border-secondary">
+            <div class="container py-3">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <h1 class="font-rajdhani display-4 fw-bold text-uppercase text-gradient mb-3">О клубе REQUIEM</h1>
+                        <p class="lead text-light mb-3">REQUIEM — это не просто компьютерный клуб, а бескомпромиссная киберспортивная экосистема, созданная геймерами для геймеров.</p>
+                        <p class="text-muted">Мы спроектировали пространство с акцентом на эргономику, мощное охлаждение и качественную шумоизоляцию. В нашем клубе установлены профессиональные мониторы 360Hz OLED, флагманские видеокарты RTX 4090 и кастомные кресла Secretlab. Для киберспортивных команд предусмотрены изолированные Boot Camp комнаты.</p>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Игровая арена Requiem" class="img-fluid rounded cyber-border shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 2: Lounge & Snack Bar -->
+        <section class="py-5 bg-dark-accent border-bottom border-secondary">
+            <div class="container py-3">
+                <div class="text-center mb-5">
+                    <h2 class="font-rajdhani display-5 fw-bold text-uppercase text-gradient">Lounge & Snack Bar</h2>
+                    <p class="text-muted">Отдохните между потными катками в нашем лаундже с авторской кухней и консолями PS5</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Карта 1: Бургеры и снеки
+[06.10.2026 00:06] Корейский Цой: -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card cyber-card h-100 p-3">
+                            <div class="card-body">
+                                <div class="fs-1 text-cyan mb-2"><i class="bi bi-egg-fried"></i></div>
+                                <h3 class="card-title font-rajdhani text-light h4">Cyber Burgers & Snacks</h3>
+                                <p class="card-text text-muted">Сочные крафтовые бургеры, картофель фри с фирменными соусами и снеки с быстрой подачей прямо к игровому месту.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Карта 2: Бар и Кофе -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card cyber-card h-100 p-3">
+                            <div class="card-body">
+                                <div class="fs-1 text-purple mb-2"><i class="bi bi-cup-hot"></i></div>
+                                <h3 class="card-title font-rajdhani text-light h4">Energy & Coffee Bar</h3>
+                                <p class="card-text text-muted">Авторский кофе, протеиновые коктейли и холодные энергетические напитки с редкими вкусами для поддержания концентрации.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Карта 3: Консоли PS5 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card cyber-card h-100 p-3">
+                            <div class="card-body">
+                                <div class="fs-1 text-cyan mb-2"><i class="bi bi-controller"></i></div>
+                                <h3 class="card-title font-rajdhani text-light h4">PS5 Lounge Zone</h3>
+                                <p class="card-text text-muted">Отдельная зона с мягкими диванами, 4K OLED телевизорами 75" и свежими тайтлами: FC24, Mortal Kombat 1 и UFC 5.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 3: Правила клуба -->
+        <section class="py-5 border-bottom border-secondary">
+            <div class="container py-3">
+                <h2 class="font-rajdhani display-5 fw-bold text-uppercase text-cyan mb-4 text-center">Правила посещения</h2>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card cyber-card p-4">
+                            <ul class="list-group list-group-flush bg-transparent">
+                                <li class="list-group-item bg-transparent text-light border-secondary">
+                                    <i class="bi bi-shield-exclamation text-purple me-2"></i><strong>Возрастные ограничения:</strong> Допуск лиц младше 16 лет в ночные пакеты (после 22:00) категорически запрещен согласно законодательству.
+                                </li>
+                                <li class="list-group-item bg-transparent text-light border-secondary">
+                                    <i class="bi bi-shield-exclamation text-purple me-2"></i><strong>Еда и напитки:</strong> Пронос собственного алкоголя и еды сторонних заведений в игровой зал не допускается.
+                                </li>
+                                <li class="list-group-item bg-transparent text-light border-secondary">
+                                    <i class="bi bi-shield-exclamation text-purple me-2"></i><strong>Бережное отношение:</strong> Удары по периферии (мыши, клавиатуры, мониторы) караются немедленным аннулированием сессии.
+                                </li>
+                                <li class="list-group-item bg-transparent text-light border-secondary">
+                                    <i class="bi bi-shield-exclamation text-purple me-2"></i><strong>Читерство:</strong> Использование любого стороннего софта (читы, скрипты) приводит к пожизненному бану в клубе.
+[06.10.2026 00:06] Корейский Цой: </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 4: Контакты и Интерактивная карта -->
+        <section class="py-5 bg-dark-accent">
+            <div class="container py-3">
+                <div class="row g-4 align-items-center">
+                    <!-- Текстовые контакты -->
+                    <div class="col-lg-5">
+                        <h2 class="font-rajdhani display-5 fw-bold text-uppercase text-gradient mb-4">Контакты & Локация</h2>
+                        
+                        <div class="mb-3">
+                            <small class="text-cyan d-block font-rajdhani fs-6">АДРЕС:</small>
+                            <span class="fs-5 text-light">г. Астана, пр. Кабанбай Батыра, 60/1</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <small class="text-cyan d-block font-rajdhani fs-6">РЕЖИМ РАБОТЫ:</small>
+                            <span class="fs-5 text-light">Круглосуточно (24/7)</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <small class="text-cyan d-block font-rajdhani fs-6">ТЕЛЕФОН АДМИНИСТРАТОРА:</small>
+                            <a href="tel:+77001234567" class="fs-4 text-purple font-rajdhani fw-bold text-decoration-none">+7 (700) 123-45-67</a>
+                        </div>
+
+                        <div class="mb-3">
+                            <small class="text-cyan d-block font-rajdhani fs-6">EMAIL:</small>
+                            <span class="fs-5 text-light">info@requiem-club.kz</span>
+                        </div>
+                    </div>
+
+                    <!-- Интерактивная карта (iframe с темным фильтром) -->
+                    <div class="col-lg-7">
+                        <div class="cyber-border rounded overflow-hidden shadow-lg">
+                            <iframe 
+                                class="dark-map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.748154181045!2d71.4154!3d51.0901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTEgw4A1NScyNC40Ik4gNzHCsDI0JzU1LjQiRQ!5e0!3m2!1sru!2skz!4v1620000000000!5m2!1sru!2skz" 
+                                width="100%" 
+                                height="380" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Единый Footer проекта -->
+    <footer class="bg-nexus-nav border-top border-purple py-4 mt-auto">
+        <div class="container text-center text-md-between d-md-flex align-items-center">
+            <p class="mb-0 text-muted font-rajdhani">&copy; 2026 REQUIEM Esports Club. Все права защищены.</p>
+            <div class="social-links mt-2 mt-md-0">
+                <a href="#" class="text-cyan me-3 fs-5" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+                <a href="#" class="text-purple me-3 fs-5" aria-label="Discord"><i class="bi bi-discord"></i></a>
+                <a href="#" class="text-cyan fs-5" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+[06.10.2026 00:06] Корейский Цой: STYLE.CSS
+/* --- ОСНОВНЫЕ ПЕРЕМЕННЫЕ И ЦВЕТА --- */
+body {
+    background-color: #0a0a0f !important;
+    font-family: 'Inter', sans-serif;
+    color: #f1f5f9;
+}
+
+.font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+.text-cyan { color: #22d3ee !important; }
+.text-purple { color: #a78bfa !important; }
+.bg-purple { background-color: #8b5cf6 !important; }
+.bg-cyan { background-color: #06b6d4 !important; }
+.bg-dark-nexus { background-color: #0a0a0f; }
+.bg-dark-accent { background-color: #12121a; }
+.bg-nexus-nav { background-color: rgba(10, 10, 15, 0.95); backdrop-filter: blur(10px); }
+.border-purple { border-color: rgba(139, 92, 246, 0.4) !important; }
+
+/* ГРАДИЕНТНЫЙ ТЕКСТ */
+.text-gradient {
+    background: linear-gradient(135deg, #38bdf8 0%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-muted {
+    color: #cbd5e1 !important;
+}
+
+.cyber-border {
+    border: 1px solid rgba(6, 182, 212, 0.5);
+}
+
+/* КАРТОЧКИ КИБЕРПАНК */
+.cyber-card {
+    background-color: #12121a;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 12px;
+}
+
+/* СТИЛИЗАЦИЯ ФОРМ И ИНПУТОВ (TASK: UX Specialist) */
+.cyber-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #22d3ee;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.cyber-input {
+    background-color: #181824 !important;
+    border: 1px solid rgba(139, 92, 246, 0.4) !important;
+    color: #ffffff !important;
+    border-radius: 6px;
+    padding: 0.65rem 1rem;
+}
+
+.cyber-input::placeholder {
+    color: #64748b !important;
+}
+
+/* ЭФФЕКТ СВЕЧЕНИЯ ПРИ ФОКУСЕ НА ИНПУТ */
+.cyber-input:focus {
+    background-color: #1f1f2e !important;
+    border-color: #22d3ee !important;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.4) !important;
+    outline: none;
+}
+
+/* СТИЛИЗАЦИЯ ЧЕКБОКСОВ */
+.cyber-checkbox .form-check-input {
+    background-color: #181824;
+    border: 1px solid #8b5cf6;
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.cyber-checkbox .form-check-input:checked {
+    background-color: #22d3ee;
+    border-color: #22d3ee;
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
+}
+
+/* НЕОНОВАЯ КНОПКА ОТПРАВКИ */
+.btn-cyber-gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+    border: none;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-cyber-gradient:hover {
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.7);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.hover-cyan:hover {
+    color: #22d3ee !important;
+}
+
+/* ТЕМНЫЙ ФИЛЬТР ДЛЯ GOOGLE MAPS */
+.dark-map {
+    filter: invert(90%) hue-rotate(180deg) contrast(110%);
+}
