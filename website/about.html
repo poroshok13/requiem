@@ -2,148 +2,234 @@
 <html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REQUIEM — About &amp; Lounge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About and Contact | Requiem</title>
+  <meta name="description" content="About the Requiem gaming hall: the story, the lounge menu, photo gallery, contacts and credits.">
+  
+  <script src="js/theme.js"></script>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=IM+Fell+English:ital@0;1&amp;display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="d-flex flex-column min-vh-100">
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-nexus-nav sticky-top border-bottom border-purple">
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <nav class="navbar navbar-expand-lg site-nav sticky-top" aria-label="Main navigation">
     <div class="container">
-      <a class="navbar-brand font-rajdhani fw-bold fs-3 text-uppercase text-gradient" href="index.html">
-        REQUIEM
-      </a>
-      <button class="navbar-toggler border-purple" type="button" data-bs-toggle="collapse" data-bs-target="#nexusNav" aria-controls="nexusNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="brand" href="index.html"><svg viewBox="0 0 22 30" aria-hidden="true"><path d="M2 29V11a9 9 0 0 1 18 0v18z" fill="none" stroke="#f2a950" stroke-width="2"/><circle cx="11" cy="20" r="3" fill="#f2a950"/></svg><span>Requiem</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="nexusNav">
-        <ul class="navbar-nav ms-auto font-rajdhani fs-5 fw-semibold">
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="zones.html">Zones &amp; Hardware</a></li>
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="pricing.html">Tariffs</a></li>
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="tournaments.html">Tournaments</a></li>
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="booking.html">Booking</a></li>
-          <li class="nav-item"><a class="nav-link active text-purple-light" href="about.html">About</a></li>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <form class="site-search" role="search">
+          <label class="visually-hidden" for="globalSearch">Search the site</label>
+          <input type="search" id="globalSearch" class="form-control form-control-sm" placeholder="Search games, tournaments, FAQ" autocomplete="off" aria-controls="searchPanel" aria-expanded="false">
+          <div class="search-panel" id="searchPanel" hidden></div>
+        </form>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="zones.html">Zones</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Prices</a></li>
+          <li class="nav-item"><a class="nav-link" href="tournaments.html">Tournaments</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
         </ul>
       </div>
     </div>
   </nav>
+</header>
 
-  <main class="flex-grow-1">
-    <section class="hero hero-sm">
-      <div class="container text-center">
-        <h1 class="display-4 fw-bold font-rajdhani text-uppercase text-white">About <span class="text-gradient">REQUIEM</span></h1>
-        <p class="lead text-muted-nx col-lg-8 mx-auto">More than just a PC club — an esports arena and lounge built for competitive gaming and collegiate community.</p>
-      </div>
-    </section>
+<main id="main">
 
-    <section class="py-5">
-      <div class="container">
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-6">
-            <h2 class="font-rajdhani display-6 fw-bold text-white mb-3">Next-Generation Gaming Environment</h2>
-            <p class="text-muted-nx">REQUIEM was founded to solve a major problem for local collegiate players: the prohibitive cost of flagship 360Hz esports hardware and unstable residential Internet connections.</p>
-            <p class="text-muted-nx">We built a modern, sound-isolated center equipped with industrial air ventilation, dedicated 10 Gbps fiber routing with redundant failover, and ergonomic Secretlab seating.</p>
-          </div>
-          <div class="col-lg-6">
-            <div class="row g-3">
-              <div class="col-6"><div class="cyber-card p-4 text-center"><div class="stat-num">120+</div><div class="text-muted-nx small">Stations</div></div></div>
-              <div class="col-6"><div class="cyber-card p-4 text-center"><div class="stat-num">24/7</div><div class="text-muted-nx small">Open Every Day</div></div></div>
-              <div class="col-6"><div class="cyber-card p-4 text-center"><div class="stat-num">360Hz</div><div class="text-muted-nx small">DyAc 2 Panels</div></div></div>
-              <div class="col-6"><div class="cyber-card p-4 text-center"><div class="stat-num">10G</div><div class="text-muted-nx small">Fiber Line</div></div></div>
-            </div>
+  <section class="page-head has-bg" aria-labelledby="about-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <h1 id="about-hero">About and contact</h1>
+      <p class="lead">An esports hall and lounge for competitive players and the student community of Astana.</p>
+    </div>
+  </section>
+
+  <div class="subnav" role="navigation" aria-label="On this page">
+    <div class="container">
+      <a href="#story">Story</a><a href="#team">Team</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a href="#credits">Credits</a>
+    </div>
+  </div>
+
+  <section class="section-tight" id="story" aria-labelledby="story-title">
+    <div class="container">
+      <div class="row g-4 g-lg-5 align-items-center">
+        <div class="col-lg-6">
+          <h2 id="story-title">Flagship hardware, without the flagship price</h2>
+          <p class="muted">Requiem was founded to solve two problems for local student players: the cost of 360Hz esports hardware and unstable home internet.</p>
+          <p class="muted">We built a sound-isolated hall with industrial ventilation, a redundant 10 Gbps fiber line and ergonomic Secretlab seating.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="facts" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="fact"><b>120</b><span>stations</span></div>
+            <div class="fact"><b>24/7</b><span>open every day</span></div>
+            <div class="fact" style="border-bottom:0"><b>360 Hz</b><span>DyAc 2 panels</span></div>
+            <div class="fact" style="border-bottom:0"><b>10G</b><span>fiber line</span></div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="py-5 bg-dark-card border-top border-bottom border-purple">
-      <div class="container">
-        <div class="text-center mb-5">
-          <h2 class="font-rajdhani display-6 fw-bold text-white">Lounge &amp; Bar</h2>
-          <p class="text-muted-nx">Relax, recharge between tournament sets, and play console titles with friends.</p>
-        </div>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="cyber-card p-4 h-100">
-              <i class="bi bi-controller fs-1 text-purple-light mb-3 d-inline-block"></i>
-              <h3 class="h5 text-white">PlayStation 5 Lounge</h3>
-              <p class="text-muted-nx small">65-inch OLED displays, DualSense wireless controllers, FC 25, Mortal Kombat 1, and Tekken 8.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="cyber-card p-4 h-100">
-              <i class="bi bi-cup-hot fs-1 text-purple-light mb-3 d-inline-block"></i>
-              <h3 class="h5 text-white">Specialty Barista Coffee</h3>
-              <p class="text-muted-nx small">Fresh espresso, flat white, and a wide collection of energy beverages.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="cyber-card p-4 h-100">
-              <i class="bi bi-bag-check fs-1 text-purple-light mb-3 d-inline-block"></i>
-              <h3 class="h5 text-white">Hot Food Delivery</h3>
-              <p class="text-muted-nx small">Fresh burgers, pizza, and hot sandwiches served directly to your gaming desk.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5">
-      <div class="container">
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-5">
-            <h2 class="font-rajdhani display-6 fw-bold text-white mb-4">Location &amp; Contacts</h2>
-            <div class="mb-3">
-              <small class="text-purple-light d-block font-rajdhani fs-6">ADDRESS:</small>
-              <span class="fs-5 text-white">Astana, Mangilik El Ave, 60/1</span>
-            </div>
-            <div class="mb-3">
-              <small class="text-purple-light d-block font-rajdhani fs-6">OPERATING HOURS:</small>
-              <span class="fs-5 text-white">Open 24/7 (Non-stop)</span>
-            </div>
-            <div class="mb-3">
-              <small class="text-purple-light d-block font-rajdhani fs-6">ADMIN PHONE:</small>
-              <a href="tel:+77001234567" class="fs-4 text-purple-light font-rajdhani fw-bold text-decoration-none">+7 (700) 123-45-67</a>
-            </div>
-            <div class="mb-3">
-              <small class="text-purple-light d-block font-rajdhani fs-6">EMAIL:</small>
-              <span class="fs-5 text-white">contact@requiem-arena.kz</span>
-            </div>
-          </div>
-          <div class="col-lg-7">
-            <div class="cyber-card overflow-hidden shadow">
-              <iframe 
-                class="dark-map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.748154181045!2d71.4154!3d51.0901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTEgw4A1NScyNC40Ik4gNzHCsDI0JzU1LjQiRQ!5e0!3m2!1sen!2skz!4v1620000000000!5m2!1sen!2skz" 
-                width="100%" 
-                height="360" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy">
-              </iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="nx-footer">
-    <div class="container text-center text-md-between d-md-flex align-items-center">
-      <p class="mb-0 text-muted-nx">&copy; 2026 REQUIEM. All rights reserved.</p>
-      <div class="mt-2 mt-md-0">
-        <a href="zones.html" class="me-3">Zones</a>
-        <a href="pricing.html" class="me-3">Tariffs</a>
-        <a href="tournaments.html" class="me-3">Tournaments</a>
-        <a href="booking.html">Booking</a>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <section class="section" id="team" aria-labelledby="team-title">
+    <div class="container">
+      <h2 id="team-title">Meet the team</h2>
+      <p class="muted mb-4">Four students, four parts of the site. Swipe, use the arrows or press the left and right keys.</p>
+      <div class="slider" id="teamSlider" role="region" aria-roledescription="carousel" aria-label="Team photos" tabindex="0">
+        <div class="slider-stage" id="teamStage"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery" aria-labelledby="gallery-title">
+    <div class="container">
+      <h2 id="gallery-title">Around the hall</h2>
+      <p class="muted mb-4">Tap a picture to enlarge it. Use the arrow keys to browse.</p>
+      <div class="gallery" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <section class="section band" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 id="contact-title">Contact and location</h2>
+      <p class="muted mb-4">Questions about a booking, a tournament or a partnership? Write to us and we reply within 24 hours.</p>
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="sent" id="sent" role="status" tabindex="-1">
+            <h3>Message sent</h3>
+            <p class="muted">Your reference is <b id="sentRef"></b>. We will reply the way you asked.</p>
+            <button type="button" class="btn btn-ghost btn-sm" id="sentClose">Close</button>
+          </div>
+          <form id="contactForm" class="panel p-4 p-md-5" novalidate>
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="cName" class="form-label">Your name</label>
+                <input type="text" class="form-control" id="cName" name="name" autocomplete="name" placeholder="Aidar Nurlanov" aria-describedby="err-cName" aria-invalid="false">
+                <div class="field-error" id="err-cName"></div>
+              </div>
+              <div class="col-md-6">
+                <label for="cEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="cEmail" name="email" autocomplete="email" placeholder="name@example.com" aria-describedby="err-cEmail" aria-invalid="false">
+                <div class="field-error" id="err-cEmail"></div>
+              </div>
+              <div class="col-md-6">
+                <label for="cPhone" class="form-label">Phone <span class="opt">(optional)</span></label>
+                <input type="tel" class="form-control" id="cPhone" name="phone" autocomplete="tel" placeholder="+7 700 123 45 67" aria-describedby="err-cPhone" aria-invalid="false">
+                <div class="field-error" id="err-cPhone"></div>
+              </div>
+              <div class="col-md-6">
+                <label for="cTopic" class="form-label">Topic</label>
+                <select class="form-select" id="cTopic" name="topic" aria-describedby="err-cTopic" aria-invalid="false">
+                  <option value="" selected disabled>Select a topic</option>
+                  <option value="booking">Booking help</option>
+                  <option value="tournament">Tournament question</option>
+                  <option value="partner">Partnership</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="lost">Lost and found</option>
+                </select>
+                <div class="field-error" id="err-cTopic"></div>
+              </div>
+              <div class="col-12">
+                <label for="cSubject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="cSubject" name="subject" placeholder="Boot Camp room for Saturday" aria-describedby="err-cSubject" aria-invalid="false">
+                <div class="field-error" id="err-cSubject"></div>
+              </div>
+              <div class="col-12">
+                <label for="cMessage" class="form-label">Message</label>
+                <textarea class="form-control" id="cMessage" name="message" rows="5" placeholder="Tell us what you need" aria-describedby="err-cMessage cCount" aria-invalid="false"></textarea>
+                <div class="char-count" id="cCount">0 / 500</div>
+                <div class="field-error" id="err-cMessage"></div>
+              </div>
+            </div>
+            <fieldset class="mb-3 border-0 p-0">
+              <legend class="form-label fs-6 float-none">How should we reply?</legend>
+              <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="reply" id="replyEmail" value="email"><label class="form-check-label" for="replyEmail">Email</label></div>
+              <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="reply" id="replyPhone" value="phone"><label class="form-check-label" for="replyPhone">Phone call</label></div>
+              <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="reply" id="replyTg" value="telegram"><label class="form-check-label" for="replyTg">Telegram</label></div>
+              <div class="field-error" id="err-reply"></div>
+            </fieldset>
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" id="cConsent" name="consent" aria-describedby="err-cConsent" aria-invalid="false">
+              <label class="form-check-label" for="cConsent">I agree that the club may contact me about this message.</label>
+              <div class="field-error" id="err-cConsent"></div>
+            </div>
+            <button type="submit" class="btn btn-candle btn-lg w-100">Send message</button>
+          </form>
+        </div>
+        <div class="col-lg-5">
+          <div class="panel p-4 mb-4">
+            <h3 class="h4 mb-3">Find and reach us</h3>
+            <dl class="contact mb-3">
+              <dt>Address</dt><dd>Astana, Mangilik El Ave, 60/1</dd>
+              <dt>Hours</dt><dd>Open 24/7, non-stop</dd>
+              <dt>Admin phone</dt><dd><a href="tel:+77001234567">+7 (700) 123-45-67</a></dd>
+              <dt>Email</dt><dd class="mb-0"><a href="mailto:contact@requiem-arena.kz">contact@requiem-arena.kz</a></dd>
+            </dl>
+            <a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=51.0901,71.4154" target="_blank" rel="noopener">Open in Google Maps<span class="visually-hidden"> (new tab)</span></a>
+          </div>
+          <div class="panel p-4">
+            <h3 class="h4 mb-2">Quick answers</h3>
+            <p class="muted small">Billing, age rules and cancellations are answered in the FAQ.</p>
+            <a href="pricing.html#faq" class="btn btn-ghost btn-sm">Open the FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4"><div class="map-wrap">
+            <iframe title="Map showing the Requiem gaming hall on Mangilik El Avenue, Astana" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.748154181045!2d71.4154!3d51.0901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTEgw4A1NScyNC40Ik4gNzHCsDI0JzU1LjQiRQ!5e0!3m2!1sen!2skz!4v1620000000000!5m2!1sen!2skz" loading="lazy" allowfullscreen></iframe>
+          </div></div>
+    </div>
+  </section>
+
+  <section class="section" id="credits" aria-labelledby="credits-title">
+    <div class="container">
+      <h2 id="credits-title" class="mb-4">Credits</h2>
+      <ul class="muted ps-3">
+        <li class="mb-2">Bootstrap 5.3.3: grid, navbar and form components (MIT licence).</li>
+        <li class="mb-2">Bootstrap Icons 1.11.3: all interface icons (MIT licence).</li>
+        <li class="mb-2">jQuery 3.7.1: accordion, smooth scroll, fades, counters and the photo viewer.</li>
+        <li class="mb-2">Google Fonts: IM Fell English and Hanken Grotesk (Open Font Licence).</li>
+        <li class="mb-2">Google Maps embed: the location map in the contact section.</li>
+        <li>Tournaments, teams, prices and menu items are sample content created for this student project.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+      <div>
+        <a class="brand" href="index.html"><svg viewBox="0 0 22 30" aria-hidden="true"><path d="M2 29V11a9 9 0 0 1 18 0v18z" fill="none" stroke="#f2a950" stroke-width="2"/><circle cx="11" cy="20" r="3" fill="#f2a950"/></svg><span>Requiem</span></a>
+        <p class="muted mt-2 mb-0">Mangilik El Ave, 60/1, Astana. Open 24/7.</p>
+      </div>
+      <ul class="links align-self-md-center">
+        <li><a href="zones.html">Zones</a></li>
+        <li><a href="pricing.html">Prices</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <p class="credit">&copy; 2026 Requiem. Built with Bootstrap 5, Bootstrap Icons, jQuery and Google Fonts.</p>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+<script src="js/about.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/contact.js"></script>
 </body>
 </html>

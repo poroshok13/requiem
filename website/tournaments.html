@@ -3,26 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>REQUIEM — Tournaments &amp; League</title>
+  <title>Tournaments | Requiem</title>
+  <meta name="description" content="Upcoming Requiem esports tournaments with search, filters, registration and the club leaderboard.">
+  
+  <script src="js/theme.js"></script>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=IM+Fell+English:ital@0;1&amp;display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-
+<a class="skip-link" href="#main">Skip to content</a>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top nx-nav">
+  <nav class="navbar navbar-expand-lg site-nav sticky-top" aria-label="Main navigation">
     <div class="container">
-      <a class="navbar-brand fs-3" href="index.html"><span class="grad-text">REQUIEM</span></a>
+      <a class="brand" href="index.html"><svg viewBox="0 0 22 30" aria-hidden="true"><path d="M2 29V11a9 9 0 0 1 18 0v18z" fill="none" stroke="#f2a950" stroke-width="2"/><circle cx="11" cy="20" r="3" fill="#f2a950"/></svg><span>Requiem</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
+        <form class="site-search" role="search">
+          <label class="visually-hidden" for="globalSearch">Search the site</label>
+          <input type="search" id="globalSearch" class="form-control form-control-sm" placeholder="Search games, tournaments, FAQ" autocomplete="off" aria-controls="searchPanel" aria-expanded="false">
+          <div class="search-panel" id="searchPanel" hidden></div>
+        </form>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="zones.html">Zones &amp; Hardware</a></li>
-          <li class="nav-item"><a class="nav-link" href="pricing.html">Tariffs</a></li>
+          <li class="nav-item"><a class="nav-link" href="zones.html">Zones</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Prices</a></li>
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="tournaments.html">Tournaments</a></li>
           <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
@@ -32,221 +43,147 @@
   </nav>
 </header>
 
-<main>
-  <section class="hero hero-sm" aria-labelledby="tournaments-hero">
+<main id="main">
+
+  <section class="page-head has-bg" aria-labelledby="tour-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="container">
-      <span class="badge badge-live rounded-pill px-3 py-2 mb-3"><i class="bi bi-trophy-fill me-1"></i> Official REQUIEM League 2026</span>
-      <h1 id="tournaments-hero" class="display-4">Esports <span class="grad-text">Tournaments</span></h1>
-      <p class="lead text-muted-nx col-lg-7 px-0">Weekly LAN championships across CS2, Dota 2, and Valorant with verified cash prize pools. Register your squad and claim the championship.</p>
+      <h1 id="tour-hero">Esports tournaments</h1>
+      <p class="lead">Weekly LAN events in CS2, Dota 2, Valorant and console titles, with verified cash prizes.</p>
     </div>
   </section>
 
-  <section class="section-pad pt-0" aria-labelledby="table-title">
+  <section class="section-tight" aria-labelledby="schedule-title">
     <div class="container">
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-2 mb-4">
         <div>
-          <h2 id="table-title" class="section-title">Schedule &amp; Tournament Brackets</h2>
-          <p class="text-muted-nx mb-0">Upcoming events for the current collegiate esports season.</p>
-        </div>
-        <div class="mt-3 mt-md-0">
-          <span class="badge bg-purple px-3 py-2 fs-6">Total Prize Pool: 2 500 000 ₸</span>
+          <h2 id="schedule-title">Upcoming schedule</h2>
+          <p class="muted mb-0">Register your squad in one click. You are registered in <b id="myCount">0</b> events.</p>
         </div>
       </div>
-
-      <div class="table-responsive cyber-table-wrap">
-        <table class="table table-dark table-hover align-middle mb-0 custom-tour-table">
-          <thead>
-            <tr>
-              <th scope="col">Date &amp; Time</th>
-              <th scope="col">Discipline</th>
-              <th scope="col">Tournament</th>
-              <th scope="col">Format</th>
-              <th scope="col">Prize Pool</th>
-              <th scope="col">Status</th>
-              <th scope="col" class="text-end">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="fw-semibold text-white">Oct 12, 14:00</td>
-              <td><span class="badge bg-purple"><i class="bi bi-crosshair me-1"></i> CS2</span></td>
-              <td class="fw-bold">REQUIEM Autumn Major</td>
-              <td>5v5, LAN, Double Elim</td>
-              <td class="text-purple-light fw-bold">1 000 000 ₸</td>
-              <td><span class="status-badge open">Registration Open</span></td>
-              <td class="text-end"><a href="booking.html" class="btn btn-nx btn-sm">Register</a></td>
-            </tr>
-            <tr>
-              <td class="fw-semibold text-white">Oct 19, 15:00</td>
-              <td><span class="badge bg-danger"><i class="bi bi-shield-shaded me-1"></i> Dota 2</span></td>
-              <td class="fw-bold">Battle of the Ancients</td>
-              <td>5v5, Captains Mode</td>
-              <td class="text-purple-light fw-bold">750 000 ₸</td>
-              <td><span class="status-badge open">Registration Open</span></td>
-              <td class="text-end"><a href="booking.html" class="btn btn-nx btn-sm">Register</a></td>
-            </tr>
-            <tr>
-              <td class="fw-semibold text-white">Oct 26, 16:00</td>
-              <td><span class="badge bg-purple"><i class="bi bi-fire me-1"></i> Valorant</span></td>
-              <td class="fw-bold">Spike Rush Masters</td>
-              <td>5v5, Competitive</td>
-              <td class="text-purple-light fw-bold">500 000 ₸</td>
-              <td><span class="status-badge soon">Upcoming</span></td>
-              <td class="text-end"><button class="btn btn-outline-nx btn-sm" disabled>Soon</button></td>
-            </tr>
-            <tr>
-              <td class="fw-semibold text-white">Nov 02, 18:00</td>
-              <td><span class="badge bg-success"><i class="bi bi-controller me-1"></i> EA FC 25</span></td>
-              <td class="fw-bold">Sunday PS5 Cup</td>
-              <td>1v1, Single Elim</td>
-              <td class="text-purple-light fw-bold">250 000 ₸</td>
-              <td><span class="status-badge open">Registration Open</span></td>
-              <td class="text-end"><a href="booking.html" class="btn btn-nx btn-sm">Register</a></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="toolbar cols-3">
+        <div><label class="form-label" for="eventSearch">Search tournaments</label><input type="search" class="form-control" id="eventSearch" placeholder="Try Major or Ancients" autocomplete="off"></div>
+        <div><label class="form-label" for="eventSort">Sort by</label><select class="form-select" id="eventSort"><option value="date">Soonest first</option><option value="prize">Biggest prize</option><option value="slots">Most slots left</option></select></div>
+        <div class="d-flex align-items-end pb-2"><div class="form-check"><input class="form-check-input" type="checkbox" id="onlyOpen"><label class="form-check-label" for="onlyOpen">Only with open slots</label></div></div>
       </div>
+      <div class="d-flex flex-wrap gap-2 mb-3" id="eventChips" role="group" aria-label="Filter by game"></div>
+      <p class="result-line" id="eventCount" aria-live="polite"></p>
+      <div id="eventList"></div>
     </div>
   </section>
 
-  <section class="leaderboard-block" aria-labelledby="leaderboard-title">
-    <div class="leaderboard-wrapper">
-      <div class="leaderboard-header">
-        <span class="leaderboard-tag">Season Leaderboard</span>
-        <h2 id="leaderboard-title" class="leaderboard-title">Club Hall of Fame</h2>
-        <p class="leaderboard-subtitle">Top 4 squads based on competitive ranking points earned this month.</p>
-      </div>
-
-      <div class="leaderboard-grid">
-        <div class="team-card rank-first">
-          <div class="team-top">
-            <span class="team-rank"><i class="bi bi-award-fill"></i> #1 Rank</span>
-            <h3 class="team-name">Requiem Elite</h3>
-            <p class="team-discipline">Discipline: CS2 (5v5)</p>
-            <div class="team-pts">2 450 PTS</div>
-            <ul class="team-stats">
-              <li>Series Wins: 14</li>
-              <li>Winrate: 88%</li>
-              <li>Captain: @phantom_kz</li>
-            </ul>
-          </div>
-          <span class="badge bg-purple w-100 py-2">Club Champions</span>
-        </div>
-
-        <div class="team-card">
-          <div class="team-top">
-            <span class="team-rank">#2 Rank</span>
-            <h3 class="team-name">Phoenix Clan</h3>
-            <p class="team-discipline">Discipline: Dota 2</p>
-            <div class="team-pts">1 980 PTS</div>
-            <ul class="team-stats">
-              <li>Series Wins: 11</li>
-              <li>Winrate: 76%</li>
-              <li>Captain: @alfa_strike</li>
-            </ul>
-          </div>
-          <span class="badge bg-dark border border-purple w-100 py-2">Challengers</span>
-        </div>
-
-        <div class="team-card">
-          <div class="team-top">
-            <span class="team-rank">#3 Rank</span>
-            <h3 class="team-name">CyberGhost Squad</h3>
-            <p class="team-discipline">Discipline: Valorant</p>
-            <div class="team-pts">1 620 PTS</div>
-            <ul class="team-stats">
-              <li>Series Wins: 9</li>
-              <li>Winrate: 70%</li>
-              <li>Captain: @spectre_void</li>
-            </ul>
-          </div>
-          <span class="badge bg-dark border border-purple w-100 py-2">Challengers</span>
-        </div>
-
-        <div class="team-card">
-          <div class="team-top">
-            <span class="team-rank">#4 Rank</span>
-            <h3 class="team-name">Aurora Gaming</h3>
-            <p class="team-discipline">Discipline: CS2 (5v5)</p>
-            <div class="team-pts">1 340 PTS</div>
-            <ul class="team-stats">
-              <li>Series Wins: 7</li>
-              <li>Winrate: 64%</li>
-              <li>Captain: @aurora_lead</li>
-            </ul>
-          </div>
-          <span class="badge bg-dark border border-purple w-100 py-2">Challengers</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-pad" aria-labelledby="rules-title">
+  <section class="section band mt-4" aria-labelledby="board-title">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-8">
-          <div class="text-center mb-4">
-            <h2 id="rules-title" class="section-title">Tournament Regulations</h2>
-            <p class="text-muted-nx">Rules and requirements for participating squads.</p>
-          </div>
+      <h2 id="board-title">Club Hall of Fame</h2>
+      <p class="muted mb-4">Squad rankings for the current season.</p>
+      <div class="row g-3 mb-3 align-items-end">
+        <div class="col-md-8"><div class="d-flex flex-wrap gap-2" id="boardChips" role="group" aria-label="Filter squads by game"></div></div>
+        <div class="col-md-4"><label class="form-label" for="boardSort">Rank by</label><select class="form-select" id="boardSort"><option value="points">Points</option><option value="wins">Series wins</option><option value="winrate">Winrate</option></select></div>
+      </div>
+      <p class="result-line" id="boardCount" aria-live="polite"></p>
+      <div id="boardList"></div>
+    </div>
+  </section>
 
-          <div class="accordion" id="tourRulesAccordion">
-            <div class="accordion-item glass border-0 mb-3">
-              <h3 class="accordion-header" id="ruleOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRuleOne" aria-expanded="false" aria-controls="collapseRuleOne">
-                  Anti-Cheat Policy &amp; Account Verification
-                </button>
-              </h3>
-              <div id="collapseRuleOne" class="accordion-collapse collapse" aria-labelledby="ruleOne" data-bs-parent="#tourRulesAccordion">
-                <div class="accordion-body text-muted-nx">
-                  All players must compete on verified personal accounts. External macros, software assists, or hardware exploitation result in immediate team disqualification and permanent club ban.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item glass border-0 mb-3">
-              <h3 class="accordion-header" id="ruleTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRuleTwo" aria-expanded="false" aria-controls="collapseRuleTwo">
-                  Personal Peripherals &amp; Warmup Window
-                </button>
-              </h3>
-              <div id="collapseRuleTwo" class="accordion-collapse collapse" aria-labelledby="ruleTwo" data-bs-parent="#tourRulesAccordion">
-                <div class="accordion-body text-muted-nx">
-                  Teams are provided with a 30-minute warmup buffer before match starts to plug in personal mice, keyboards, and calibrate settings on 360Hz monitors.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item glass border-0 mb-3">
-              <h3 class="accordion-header" id="ruleThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRuleThree" aria-expanded="false" aria-controls="collapseRuleThree">
-                  Prize Distribution
-                </button>
-              </h3>
-              <div id="collapseRuleThree" class="accordion-collapse collapse" aria-labelledby="ruleThree" data-bs-parent="#tourRulesAccordion">
-                <div class="accordion-body text-muted-nx">
-                  Cash rewards are awarded directly to squad captains on tournament conclusion day via verified bank wire or cash settlement without platform commission.
-                </div>
-              </div>
-            </div>
+  <section class="section" aria-labelledby="rules-title">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 id="rules-title" class="mb-4">Tournament regulations</h2>
+          <div data-fold-group>
+            <div class="fold"><button type="button" class="fold-btn" aria-expanded="false" aria-controls="rule-1"><span>Anti-cheat policy and account verification</span><i class="bi bi-plus-lg" aria-hidden="true"></i></button><div class="fold-panel" id="rule-1" role="region"><p>All players compete on verified personal accounts. Macros, software assists or hardware exploits mean immediate disqualification and a permanent club ban.</p></div></div>
+            <div class="fold"><button type="button" class="fold-btn" aria-expanded="false" aria-controls="rule-2"><span>Personal peripherals and warm-up window</span><i class="bi bi-plus-lg" aria-hidden="true"></i></button><div class="fold-panel" id="rule-2" role="region"><p>Teams get a 30-minute buffer before the match to plug in their own mice and keyboards and calibrate settings on the 360Hz monitors.</p></div></div>
+            <div class="fold"><button type="button" class="fold-btn" aria-expanded="false" aria-controls="rule-3"><span>Prize distribution</span><i class="bi bi-plus-lg" aria-hidden="true"></i></button><div class="fold-panel" id="rule-3" role="region"><p>Prizes go to squad captains on the day the tournament ends, by bank transfer or cash, with no platform commission.</p></div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 </main>
 
-<footer class="nx-footer">
-  <div class="container text-center text-md-between d-md-flex align-items-center">
-    <p class="mb-0 text-muted-nx">&copy; 2026 REQUIEM. All rights reserved.</p>
-    <div class="mt-2 mt-md-0">
-      <a href="tournaments.html" class="me-3">Tournaments</a>
-      <a href="booking.html" class="me-3">Booking</a>
-      <a href="about.html">About</a>
+<footer class="site-footer">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+      <div>
+        <a class="brand" href="index.html"><svg viewBox="0 0 22 30" aria-hidden="true"><path d="M2 29V11a9 9 0 0 1 18 0v18z" fill="none" stroke="#f2a950" stroke-width="2"/><circle cx="11" cy="20" r="3" fill="#f2a950"/></svg><span>Requiem</span></a>
+        <p class="muted mt-2 mb-0">Mangilik El Ave, 60/1, Astana. Open 24/7.</p>
+      </div>
+      <ul class="links align-self-md-center">
+        <li><a href="zones.html">Zones</a></li>
+        <li><a href="pricing.html">Prices</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
     </div>
+    <p class="credit">&copy; 2026 Requiem. Built with Bootstrap 5, Bootstrap Icons, jQuery and Google Fonts.</p>
   </div>
 </footer>
 
+<div class="modal fade" id="squadModal" tabindex="-1" aria-labelledby="squadTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <form id="squadForm" novalidate>
+        <div class="modal-header">
+          <h2 class="modal-title h4" id="squadTitle">Register your squad</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="muted small mb-3" id="squadEvent"></p>
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="sqName" class="form-label">Squad name</label>
+              <input type="text" class="form-control" id="sqName" name="squad" placeholder="Requiem Elite" autocomplete="organization" aria-describedby="err-sqName" aria-invalid="false">
+              <div class="field-error" id="err-sqName"></div>
+            </div>
+            <div class="col-md-6">
+              <label for="sqCaptain" class="form-label">Captain Telegram</label>
+              <div class="input-group">
+                <span class="input-group-text" aria-hidden="true">@</span>
+                <input type="text" class="form-control" id="sqCaptain" name="captain" placeholder="handle" aria-describedby="err-sqCaptain" aria-invalid="false">
+              </div>
+              <div class="field-error" id="err-sqCaptain"></div>
+            </div>
+            <div class="col-md-6">
+              <label for="sqPlayers" class="form-label">Players in the squad</label>
+              <input type="number" class="form-control" id="sqPlayers" name="players" min="1" max="5" inputmode="numeric" aria-describedby="sqPlayersHint err-sqPlayers" aria-invalid="false">
+              <div class="hint" id="sqPlayersHint">Must match the team size of the event.</div>
+              <div class="field-error" id="err-sqPlayers"></div>
+            </div>
+            <div class="col-md-6">
+              <label for="sqEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="sqEmail" name="email" placeholder="name@example.com" autocomplete="email" aria-describedby="err-sqEmail" aria-invalid="false">
+              <div class="field-error" id="err-sqEmail"></div>
+            </div>
+            <div class="col-md-6">
+              <label for="sqPhone" class="form-label">Phone</label>
+              <input type="tel" class="form-control" id="sqPhone" name="phone" placeholder="+7 700 123 45 67" autocomplete="tel" aria-describedby="err-sqPhone" aria-invalid="false">
+              <div class="field-error" id="err-sqPhone"></div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sqRules" name="rules" aria-describedby="err-sqRules" aria-invalid="false">
+                <label class="form-check-label" for="sqRules">Our squad knows the tournament rules and will arrive 15 minutes before the start.</label>
+              </div>
+              <div class="field-error" id="err-sqRules"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-ghost btn-sm" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-candle" id="squadSubmit">Send registration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+<script src="js/tournaments.js"></script>
 </body>
 </html>

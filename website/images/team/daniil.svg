@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Cartoon portrait of team member daniil">
+<defs><radialGradient id="g" cx="50%" cy="100%" r="80%"><stop offset="0" stop-color="#a99bd6" stop-opacity=".6"/><stop offset="1" stop-color="#a99bd6" stop-opacity="0"/></radialGradient></defs>
+<rect width="800" height="600" fill="#14101a"/>
+<path d="M120 570V270A280 280 0 0 1 680 270V570Z" fill="#1d1724" stroke="#3f3449" stroke-width="3"/>
+<path d="M120 570V270A280 280 0 0 1 680 270V570Z" fill="url(#g)"/>
+<path d="M400 0V570" stroke="#ebe3d3" stroke-opacity=".08" stroke-width="2"/>
+<rect x="60" y="570" width="680" height="14" fill="#2a2133"/>
+<g transform="translate(400 520) scale(1.6)"><path d="M-70 0c0-60 30-90 70-90s70 30 70 90z" fill="#a99bd6" stroke="#14101a" stroke-width="5"/><rect x="-14" y="-110" width="28" height="26" fill="#f8dcc4"/><circle cx="0" cy="-150" r="52" fill="#f8dcc4" stroke="#14101a" stroke-width="5"/><path d="M-54 -158c0-44 30-62 56-58 30-4 54 18 52 58-16-24-38-30-60-30-22 0-34 12-48 30z" fill="#14101a" stroke="#14101a" stroke-width="5"/><circle cx="-18" cy="-148" r="5" fill="#14101a"/><circle cx="18" cy="-148" r="5" fill="#14101a"/><path d="M-16 -126q16 14 32 0" fill="none" stroke="#14101a" stroke-width="5" stroke-linecap="round"/></g></svg>

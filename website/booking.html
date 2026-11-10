@@ -2,165 +2,296 @@
 <html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REQUIEM — Online Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Booking | Requiem</title>
+  <meta name="description" content="Book a Requiem gaming station online: choose a zone, time and exact seats on the hall map.">
+  
+  <script src="js/theme.js"></script>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=IM+Fell+English:ital@0;1&amp;display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="d-flex flex-column min-vh-100">
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-nexus-nav sticky-top border-bottom border-purple">
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <nav class="navbar navbar-expand-lg site-nav sticky-top" aria-label="Main navigation">
     <div class="container">
-      <a class="navbar-brand font-rajdhani fw-bold fs-3 text-uppercase text-gradient" href="index.html">
-        REQUIEM
-      </a>
-      <button class="navbar-toggler border-purple" type="button" data-bs-toggle="collapse" data-bs-target="#nexusNav" aria-controls="nexusNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="brand" href="index.html"><svg viewBox="0 0 22 30" aria-hidden="true"><path d="M2 29V11a9 9 0 0 1 18 0v18z" fill="none" stroke="#f2a950" stroke-width="2"/><circle cx="11" cy="20" r="3" fill="#f2a950"/></svg><span>Requiem</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="nexusNav">
-        <ul class="navbar-nav ms-auto font-rajdhani fs-5 fw-semibold">
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="zones.html">Zones &amp; Hardware</a></li>
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="pricing.html">Tariffs</a></li>
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="tournaments.html">Tournaments</a></li>
-          <li class="nav-item"><a class="nav-link active text-purple-light" href="booking.html">Booking</a></li>
-          <li class="nav-item"><a class="nav-link text-muted-nx" href="about.html">About</a></li>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <form class="site-search" role="search">
+          <label class="visually-hidden" for="globalSearch">Search the site</label>
+          <input type="search" id="globalSearch" class="form-control form-control-sm" placeholder="Search games, tournaments, FAQ" autocomplete="off" aria-controls="searchPanel" aria-expanded="false">
+          <div class="search-panel" id="searchPanel" hidden></div>
+        </form>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="zones.html">Zones</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Prices</a></li>
+          <li class="nav-item"><a class="nav-link" href="tournaments.html">Tournaments</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         </ul>
       </div>
     </div>
   </nav>
+</header>
 
-  <main class="container py-5 flex-grow-1">
-    <div class="text-center mb-5">
-      <h1 class="display-4 fw-bold font-rajdhani text-uppercase text-white">Station <span class="text-gradient">Reservation</span></h1>
-      <p class="text-muted-nx fs-5">Reserve your station, boot camp suite, and preferred duration online.</p>
+<main id="main">
+
+  <section class="page-head has-bg" aria-labelledby="book-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <h1 id="book-hero">Reserve your station</h1>
+      <p class="lead">Pick a zone and time, choose the exact stations on the map, and pay when you arrive.</p>
     </div>
+  </section>
 
-    <div class="row g-4 justify-content-center">
-      <div class="col-lg-7">
-        <div class="cyber-card p-4 p-md-5">
-          <form action="#" method="POST" id="bookingForm">
-            <div class="mb-4">
-              <label for="zoneSelect" class="form-label cyber-label">1. Gaming Zone Tier</label>
-              <select class="form-select cyber-input" id="zoneSelect" name="zone" required>
-                <option value="" disabled selected>Select zone tier...</option>
-                <option value="standard">Standard Zone (RTX 4070 / 240Hz)</option>
-                <option value="comfort">Comfort Zone (RTX 4080 / 280Hz)</option>
-                <option value="vip">VIP Lounge (RTX 4090 / 360Hz)</option>
-                <option value="bootcamp">Boot Camp 5v5 Private Suite</option>
-              </select>
-            </div>
+  <section class="section-tight">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="ticket" id="ticket" role="status" tabindex="-1">
+            <h2>Reservation confirmed</h2>
+            <div class="code" id="tkCode">RQ-00000</div>
+            <p class="muted mb-0">Show this code at reception. A confirmation goes to <span id="tkMail"></span>.</p>
+            <dl>
+              <dt>Name</dt><dd id="tkName"></dd>
+              <dt>Zone</dt><dd id="tkZone"></dd>
+              <dt>When</dt><dd id="tkWhen"></dd>
+              <dt>Pass</dt><dd id="tkPack"></dd>
+              <dt>Stations</dt><dd id="tkSeats"></dd>
+              <dt>Add-ons</dt><dd id="tkAddons"></dd>
+              <dt>Drinks</dt><dd id="tkDrinks"></dd>
+              <dt>Total</dt><dd id="tkTotal"></dd>
+            </dl>
+            <div class="d-flex flex-wrap gap-2 mt-3 no-print"><button type="button" class="btn btn-candle btn-sm" id="ticketPrint"><i class="bi bi-printer" aria-hidden="true"></i> Print ticket</button><button type="button" class="btn btn-ghost btn-sm" id="ticketClose">Close</button></div>
+          </div>
 
-            <div class="row g-3 mb-4">
-              <div class="col-md-6">
-                <label for="bookingDate" class="form-label cyber-label">2. Date</label>
-                <input type="date" class="form-control cyber-input" id="bookingDate" name="date" required>
+          <form id="bookingForm" class="panel p-4 p-md-5" novalidate>
+            <ol class="stepper" id="stepper" aria-label="Booking steps">
+              <li><button type="button" class="step-dot" data-go="1"><b>1</b><span>Zone</span></button></li>
+              <li><button type="button" class="step-dot" data-go="2"><b>2</b><span>Time</span></button></li>
+              <li><button type="button" class="step-dot" data-go="3"><b>3</b><span>Seat</span></button></li>
+              <li><button type="button" class="step-dot" data-go="4"><b>4</b><span>Contacts</span></button></li>
+            </ol>
+            <div class="step-progress" id="stepProgress" role="progressbar" aria-label="Booking progress" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" aria-valuetext="Step 1 of 4: Zone"><i></i></div>
+
+            <section class="step-panel" data-step="1" aria-labelledby="st1">
+              <h2 class="h3 mb-4" id="st1" tabindex="-1">Choose your zone and pass</h2>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="zone" class="form-label">Gaming zone</label>
+                  <select class="form-select" id="zone" name="zone" aria-describedby="err-zone" aria-invalid="false">
+                    <option value="" selected disabled>Select a zone</option>
+                    <option value="standard">Standard Zone (RTX 4070, 240Hz)</option>
+                    <option value="comfort">Comfort Zone (RTX 4080, 280Hz)</option>
+                    <option value="vip">VIP Lounge (RTX 4090, 360Hz)</option>
+                    <option value="bootcamp">Boot Camp 5v5 private suite</option>
+                  </select>
+                  <div class="field-error" id="err-zone"></div>
+                </div>
+                <div class="col-md-8">
+                  <label for="pack" class="form-label">Pass</label>
+                  <select class="form-select" id="pack" name="pack" aria-describedby="err-pack" aria-invalid="false">
+                    <option value="" selected disabled>Select a pass</option>
+                    <option value="hour">1 Hour, 900 ₸ per station</option>
+                    <option value="3hours">3-Hour Boost, 2 400 ₸ per station</option>
+                    <option value="night">Night Marathon 22:00 to 08:00, 4 500 ₸ per station</option>
+                    <option value="bootcamp5h">Boot Camp 5v5, 18 000 ₸ for the room</option>
+                  </select>
+                  <div class="field-error" id="err-pack"></div>
+                </div>
+                <div class="col-md-4">
+                  <label for="stations" class="form-label">Stations</label>
+                  <input type="number" class="form-control" id="stations" name="stations" min="1" max="10" value="1" inputmode="numeric" aria-describedby="stationsHint err-stations" aria-invalid="false">
+                  <div class="hint" id="stationsHint">Between 1 and 10 stations.</div>
+                  <div class="field-error" id="err-stations"></div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label for="packageSelect" class="form-label cyber-label">3. Duration / Package</label>
-                <select class="form-select cyber-input" id="packageSelect" name="duration" required>
-                  <option value="" disabled selected>Select duration...</option>
-                  <option value="1hour">1 Hour (900 ₸)</option>
-                  <option value="3hours">3-Hour Boost (2 400 ₸)</option>
-                  <option value="night">Night Marathon 22:00-08:00 (4 500 ₸)</option>
-                  <option value="bootcamp5h">Boot Camp 5v5 (18 000 ₸)</option>
-                </select>
-              </div>
-            </div>
+              <div class="step-actions"><span></span><button type="button" class="btn btn-candle" data-next>Next: time <i class="bi bi-arrow-right" aria-hidden="true"></i></button></div>
+            </section>
 
-            <div class="mb-4">
-              <label for="stationCount" class="form-label cyber-label">4. Number of Stations</label>
-              <input type="number" class="form-control cyber-input" id="stationCount" name="stations" min="1" max="10" value="1" required>
-            </div>
-
-            <div class="row g-3 mb-4">
-              <div class="col-md-6">
-                <label for="userName" class="form-label cyber-label">5. Full Name</label>
-                <input type="text" class="form-control cyber-input" id="userName" name="name" placeholder="John Doe" required>
+            <section class="step-panel" data-step="2" aria-labelledby="st2" hidden>
+              <h2 class="h3 mb-4" id="st2" tabindex="-1">Pick a date and start time</h2>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="date" class="form-label">Date</label>
+                  <input type="date" class="form-control" id="date" name="date" aria-describedby="err-date" aria-invalid="false">
+                  <div class="field-error" id="err-date"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="time" class="form-label">Start time</label>
+                  <select class="form-select" id="time" name="time" aria-describedby="timeHint err-time" aria-invalid="false"><option value="" selected disabled>Select a time</option></select>
+                  <div class="hint" id="timeHint">Choose a zone and date to see how many stations are free at each hour.</div>
+                  <div class="field-error" id="err-time"></div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label for="userPhone" class="form-label cyber-label">6. Phone Number</label>
-                <input type="tel" class="form-control cyber-input" id="userPhone" name="phone" placeholder="+7 (700) 000-00-00" required>
-              </div>
-            </div>
+              <p class="hint mt-3">Bookings open up to 60 days ahead. Night Marathon always starts at 22:00.</p>
+              <div class="step-actions"><button type="button" class="btn btn-ghost" data-back><i class="bi bi-arrow-left" aria-hidden="true"></i> Back</button><button type="button" class="btn btn-candle" data-next>Next: seat <i class="bi bi-arrow-right" aria-hidden="true"></i></button></div>
+            </section>
 
-            <div class="mb-4">
-              <label for="userTelegram" class="form-label cyber-label">7. Telegram / Discord Handle</label>
-              <input type="text" class="form-control cyber-input" id="userTelegram" name="telegram" placeholder="@handle">
-            </div>
+            <section class="step-panel" data-step="3" aria-labelledby="st3" hidden>
+              <h2 class="h3 mb-4" id="st3" tabindex="-1">Pick your stations</h2>
+              <fieldset class="seats" id="seatBox" aria-describedby="err-seats">
+                <legend>Free stations at your time</legend>
+                <p class="seat-note" id="seatNote">Choose a zone, date and start time to see which stations are free.</p>
+                <div class="seat-map" id="seatMap" style="display:none"></div>
+                <div class="seat-legend mt-3" id="seatLegend" style="display:none"><span><i></i> Free</span><span><i class="sel"></i> Yours</span><span><i class="tk"></i> Taken</span></div>
+                <p class="hint text-center mb-0 mt-2" id="seatSelected" aria-live="polite">No station selected yet.</p>
+                <div class="field-error justify-content-center" id="err-seats"></div>
+              </fieldset>
+              <div class="step-actions"><button type="button" class="btn btn-ghost" data-back><i class="bi bi-arrow-left" aria-hidden="true"></i> Back</button><button type="button" class="btn btn-candle" data-next>Next: contacts <i class="bi bi-arrow-right" aria-hidden="true"></i></button></div>
+            </section>
 
-            <div class="mb-4">
-              <label class="form-label cyber-label d-block">8. Add-on Services</label>
-              <div class="form-check cyber-checkbox mb-2">
-                <input class="form-check-input" type="checkbox" id="peripheralsCheck" name="extra_gear">
-                <label class="form-check-label text-muted-nx" for="peripheralsCheck">Zowie DyAc peripheral test kit</label>
+            <section class="step-panel" data-step="4" aria-labelledby="st4" hidden>
+              <h2 class="h3 mb-4" id="st4" tabindex="-1">Your contacts</h2>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label for="fullName" class="form-label">Full name</label>
+                  <input type="text" class="form-control" id="fullName" name="name" placeholder="Aidar Nurlanov" autocomplete="name" aria-describedby="err-fullName" aria-invalid="false">
+                  <div class="field-error" id="err-fullName"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 700 123 45 67" autocomplete="tel" aria-describedby="err-phone" aria-invalid="false">
+                  <div class="field-error" id="err-phone"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" autocomplete="email" aria-describedby="err-email" aria-invalid="false">
+                  <div class="field-error" id="err-email"></div>
+                </div>
+                <div class="col-md-6">
+                  <label for="telegram" class="form-label">Telegram <span class="opt">(optional)</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text" aria-hidden="true">@</span>
+                    <input type="text" class="form-control" id="telegram" name="telegram" placeholder="handle" aria-describedby="err-telegram" aria-invalid="false">
+                  </div>
+                  <div class="field-error" id="err-telegram"></div>
+                </div>
               </div>
-              <div class="form-check cyber-checkbox mb-2">
-                <input class="form-check-input" type="checkbox" id="drinksCheck" name="extra_drinks">
-                <label class="form-check-label text-muted-nx" for="drinksCheck">Pre-order Monster Energy &amp; hot snacks</label>
-              </div>
-              <div class="form-check cyber-checkbox">
-                <input class="form-check-input" type="checkbox" id="adminHelpCheck" name="extra_help">
-                <label class="form-check-label text-muted-nx" for="adminHelpCheck">Game pre-load &amp; config setup by administrator</label>
-              </div>
-            </div>
 
-            <div class="mb-4">
-              <label for="userComment" class="form-label cyber-label">9. Additional Requests</label>
-              <textarea class="form-control cyber-input" id="userComment" name="comment" rows="3" placeholder="Sit next to friend, specific desk..."></textarea>
-            </div>
+              <fieldset class="mb-4 border-0 p-0">
+                <legend class="form-label fs-6 float-none">Add-ons <span class="opt">(optional)</span></legend>
+                <div class="form-check mb-2"><input class="form-check-input addon" type="checkbox" id="addKit" name="kit"><label class="form-check-label" for="addKit">Peripheral test kit, 1 000 ₸</label></div>
+                <div class="form-check mb-3"><input class="form-check-input addon" type="checkbox" id="addSetup" name="setup"><label class="form-check-label" for="addSetup">Game pre-load and setup by the administrator, 500 ₸</label></div>
+                <button type="button" class="btn btn-ghost btn-sm drinks-btn" data-bs-toggle="modal" data-bs-target="#drinksModal"><i class="bi bi-cup-hot" aria-hidden="true"></i> <span>Add drinks &amp; snacks</span></button>
+                <span class="hint ms-2" id="drinksHint">Brought to your desk when the session starts.</span>
+              </fieldset>
 
-            <button type="submit" class="btn btn-nx w-100 py-3 font-rajdhani fw-bold fs-5 text-uppercase">
-              Confirm Reservation <i class="bi bi-chevron-right ms-2"></i>
-            </button>
+              <div class="mb-4">
+                <label for="comment" class="form-label">Requests <span class="opt">(optional)</span></label>
+                <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Sit next to a friend, a specific desk"></textarea>
+              </div>
+
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="terms" name="terms" aria-describedby="err-terms" aria-invalid="false">
+                <label class="form-check-label" for="terms">I accept the reservation terms. Night Marathon requires a valid 18+ ID.</label>
+                <div class="field-error" id="err-terms"></div>
+              </div>
+
+              <div class="step-actions"><button type="button" class="btn btn-ghost" data-back><i class="bi bi-arrow-left" aria-hidden="true"></i> Back</button><button type="submit" class="btn btn-candle btn-lg">Confirm reservation</button></div>
+            </section>
           </form>
+          <section class="panel p-4 p-md-5 mt-4" id="myBookings" aria-labelledby="mb-title">
+            <h2 class="h3 mb-1" id="mb-title">My reservations</h2>
+            <p class="muted small mb-3" id="mbCount">Saved in this browser only.</p>
+            <div id="mbList" aria-live="polite"></div>
+          </section>
+          <div class="row g-4 mt-1">
+            <div class="col-md-6"><div class="panel p-4 h-100">
+              <h2 class="h4 mb-3">Reservation terms</h2>
+              <ul class="muted ps-3 mb-0">
+                <li class="mb-2">Stations are held for 15 minutes after the start time.</li>
+                <li class="mb-2">Night Marathon requires a valid 18+ ID.</li>
+                <li>Free cancellation up to 1 hour before the session.</li>
+              </ul>
+            </div></div>
+            <div class="col-md-6"><div class="panel p-4 h-100">
+              <h2 class="h4 mb-2">Need help?</h2>
+              <p class="muted small">For squads of 5 or more stations, or urgent changes, call the desk.</p>
+              <a href="tel:+77001234567" class="fs-5 fw-bold">+7 (700) 123-45-67</a>
+            </div></div>
+          </div>
         </div>
-      </div>
 
-      <div class="col-lg-4">
-        <div class="cyber-card p-4 mb-4">
-          <h2 class="font-rajdhani fs-4 fw-bold text-white mb-3"><i class="bi bi-shield-check text-purple-light me-2"></i>Reservation Terms</h2>
-          <ul class="list-unstyled text-muted-nx mb-0">
-            <li class="mb-3 d-flex align-items-start">
-              <i class="bi bi-check-circle-fill text-purple-light me-2 mt-1"></i>
-              <span>Reservations are held for 15 minutes past start time.</span>
-            </li>
-            <li class="mb-3 d-flex align-items-start">
-              <i class="bi bi-check-circle-fill text-purple-light me-2 mt-1"></i>
-              <span>Night Marathon pass requires valid 18+ ID.</span>
-            </li>
-            <li class="d-flex align-items-start">
-              <i class="bi bi-check-circle-fill text-purple-light me-2 mt-1"></i>
-              <span>Free cancellation up to 1 hour before booked session.</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="cyber-card p-4">
-          <h2 class="font-rajdhani fs-4 fw-bold text-white mb-3"><i class="bi bi-headset text-purple-light me-2"></i>Direct Desk Support</h2>
-          <p class="text-muted-nx small mb-3">For squad bookings of 5+ stations or urgent adjustments, call club admin:</p>
-          <a href="tel:+77001234567" class="d-block font-rajdhani fs-5 fw-bold text-purple-light text-decoration-none mb-2">
-            <i class="bi bi-telephone-fill me-2"></i>+7 (700) 123-45-67
-          </a>
-          <span class="badge bg-purple px-2 py-1">Desk available 24/7</span>
+        <div class="col-lg-4">
+          <aside class="panel summary mb-4" aria-label="Order summary">
+            <h2 class="h4 mb-3">Your reservation</h2>
+            <dl>
+              <div class="row-line"><dt class="fw-normal">Zone</dt><dd id="sumZone">Not chosen</dd></div>
+              <div class="row-line"><dt class="fw-normal">When</dt><dd id="sumWhen">Not chosen</dd></div>
+              <div class="row-line"><dt class="fw-normal">Pass</dt><dd id="sumPack">Not chosen</dd></div>
+              <div class="row-line"><dt class="fw-normal">Stations</dt><dd id="sumSeats">None yet</dd></div>
+              <div class="row-line"><dt class="fw-normal">Pass price</dt><dd id="sumBase">0 ₸</dd></div>
+              <div class="row-line"><dt class="fw-normal">Add-ons</dt><dd id="sumExtra">0 ₸</dd></div>
+              <div class="row-line"><dt class="fw-normal">Drinks &amp; snacks</dt><dd id="sumDrinks">None</dd></div>
+            </dl>
+            <button type="button" class="btn btn-ghost btn-sm w-100 mt-3 mb-3 drinks-btn" data-bs-toggle="modal" data-bs-target="#drinksModal"><i class="bi bi-cup-hot" aria-hidden="true"></i> <span>Add drinks &amp; snacks</span></button>
+            <div class="sum-total"><span>Total</span><b id="sumTotal">0 ₸</b></div>
+            <p class="hint mt-2 mb-0">Pay at reception when you arrive.</p>
+          </aside>
         </div>
       </div>
     </div>
-  </main>
+  </section>
 
-  <footer class="nx-footer">
-    <div class="container text-center text-md-between d-md-flex align-items-center">
-      <p class="mb-0 text-muted-nx">&copy; 2026 REQUIEM. All rights reserved.</p>
-      <div class="mt-2 mt-md-0">
-        <a href="zones.html" class="me-3">Zones</a>
-        <a href="pricing.html" class="me-3">Tariffs</a>
-        <a href="booking.html">Booking</a>
+</main>
+
+<div class="modal fade" id="drinksModal" tabindex="-1" aria-labelledby="drinksTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h4" id="drinksTitle">Add drinks and snacks</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="muted small">Everything you pick is added to the total of this reservation and brought to your desk when the session starts.</p>
+        <div id="drinkList"></div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <div>Drinks total <b class="drink-total" id="drinkTotal">0 ₸</b></div>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-ghost btn-sm" id="drinksClear" disabled>Clear</button>
+          <button type="button" class="btn btn-candle btn-sm" data-bs-dismiss="modal">Done</button>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+      <div>
+        <a class="brand" href="index.html"><svg viewBox="0 0 22 30" aria-hidden="true"><path d="M2 29V11a9 9 0 0 1 18 0v18z" fill="none" stroke="#f2a950" stroke-width="2"/><circle cx="11" cy="20" r="3" fill="#f2a950"/></svg><span>Requiem</span></a>
+        <p class="muted mt-2 mb-0">Mangilik El Ave, 60/1, Astana. Open 24/7.</p>
+      </div>
+      <ul class="links align-self-md-center">
+        <li><a href="zones.html">Zones</a></li>
+        <li><a href="pricing.html">Prices</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <p class="credit">&copy; 2026 Requiem. Built with Bootstrap 5, Bootstrap Icons, jQuery and Google Fonts.</p>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/my-bookings.js"></script>
 </body>
 </html>

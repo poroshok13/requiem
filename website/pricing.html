@@ -2,235 +2,219 @@
 <html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REQUIEM — Tariffs &amp; Passes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prices and Menu | Requiem</title>
+  <meta name="description" content="Requiem session passes, a pass finder that compares prices, and answers to common billing questions.">
+  
+  <script src="js/theme.js"></script>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=IM+Fell+English:ital@0;1&amp;display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nx-nav">
-      <div class="container">
-        <a class="navbar-brand fs-3" href="index.html"><span class="grad-text">REQUIEM</span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="zones.html">Zones &amp; Hardware</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="pricing.html">Tariffs</a></li>
-            <li class="nav-item"><a class="nav-link" href="tournaments.html">Tournaments</a></li>
-            <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section id="hero" class="hero hero-sm">
-      <div class="container py-lg-3">
-        <div class="row align-items-center gy-4">
-          <div class="col-12 col-lg-7 order-1 order-lg-1">
-            <div class="d-none d-md-inline-block badge badge-live mb-3 px-3 py-2">
-              <i class="bi bi-clock-history me-1"></i> Transparent Minute Billing
-            </div>
-            <div class="d-block d-md-none alert alert-dark border border-purple py-2 px-3 mb-3 small text-purple-light">
-              24/7 • Free energy drink with Night Marathon pass
-            </div>
-            <h1 class="display-4 fw-bold text-white mb-3">
-              Session Passes &amp; <span class="grad-text">Tariffs</span>
-            </h1>
-            <p class="lead text-muted-nx mb-4">
-              Clear rates with zero hidden fees. Your unspent balance never expires and stays tied to your personal account.
-            </p>
-            <div class="d-flex flex-wrap gap-2">
-              <a href="#tariffs" class="btn btn-nx px-4 py-2">View Passes</a>
-              <a href="booking.html" class="btn btn-outline-nx px-4 py-2">Book Station</a>
-            </div>
-          </div>
-          <div class="col-12 col-lg-5 order-2 order-lg-2">
-            <div class="p-4 rounded-3 border border-purple bg-dark-card shadow">
-              <div class="d-flex justify-content-between align-items-center border-bottom border-purple pb-3 mb-3">
-                <span class="text-uppercase small fw-bold text-purple-light">Live Station Status</span>
-                <span class="badge bg-success">Online • 94 / 120 Free</span>
-              </div>
-              <div class="row g-2 text-center small mb-3">
-                <div class="col-4">
-                  <div class="p-2 rounded bg-black border border-purple">
-                    <div class="fw-bold text-white">360 Hz</div>
-                    <div class="text-muted-nx">Zowie XL</div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="p-2 rounded bg-black border border-purple">
-                    <div class="fw-bold text-white">RTX 4090</div>
-                    <div class="text-muted-nx">24GB VRAM</div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="p-2 rounded bg-black border border-purple">
-                    <div class="fw-bold text-white">i9-14900K</div>
-                    <div class="text-muted-nx">6.0 GHz</div>
-                  </div>
-                </div>
-              </div>
-              <p class="small text-muted-nx mb-0">
-                Low input lag, tournament peripherals, and instant Steam library synchronization.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="tariffs" class="tariffs-block">
-      <div class="tariffs-wrapper">
-        <div class="tariffs-header">
-          <span class="tariffs-tag">Flexible Rates</span>
-          <h2 class="tariffs-title">REQUIEM Gaming Packages</h2>
-          <p class="tariffs-subtitle">Select the optimal session length for your solo queue or squad practice.</p>
-        </div>
-
-        <div class="tariffs-grid">
-          <div class="tariff-item">
-            <div class="tariff-top">
-              <span class="tariff-badge">Solo Session</span>
-              <h3 class="tariff-name">Standard Hour</h3>
-              <p class="tariff-desc">Basic zone access with RTX 4070 and 240Hz screens.</p>
-              <div class="tariff-price">900 ₸ <span>/ hour</span></div>
-              <ul class="tariff-features">
-                <li>Core i7 + RTX 4070</li>
-                <li>240Hz Full HD BenQ</li>
-                <li>HyperX Cloud II headset</li>
-                <li>Ergonomic chair</li>
-              </ul>
-            </div>
-            <a href="booking.html" class="tariff-btn">Select Pass</a>
-          </div>
-
-          <div class="tariff-item">
-            <div class="tariff-top">
-              <span class="tariff-badge">Popular</span>
-              <h3 class="tariff-name">3-Hour Boost</h3>
-              <p class="tariff-desc">Ideal duration for competitive ranked matchmaking series.</p>
-              <div class="tariff-price">2 400 ₸ <span>/ package</span></div>
-              <ul class="tariff-features">
-                <li>Core i7 + RTX 4080</li>
-                <li>280Hz Fast IPS Panel</li>
-                <li>Logitech G Pro X Superlight</li>
-                <li>Lounge zone access</li>
-              </ul>
-            </div>
-            <a href="booking.html" class="tariff-btn">Select Pass</a>
-          </div>
-
-          <div class="tariff-item featured">
-            <div class="tariff-top">
-              <span class="tariff-badge">Best Value</span>
-              <h3 class="tariff-name">Night Marathon</h3>
-              <p class="tariff-desc">Non-stop midnight grind from 22:00 to 08:00 morning.</p>
-              <div class="tariff-price">4 500 ₸ <span>/ 10 hours</span></div>
-              <ul class="tariff-features">
-                <li>Core i9 + RTX 4090</li>
-                <li>360Hz Zowie DyAc 2</li>
-                <li>Wooting 60HE keyboard</li>
-                <li>Complimentary energy drink</li>
-              </ul>
-            </div>
-            <a href="booking.html" class="tariff-btn btn-featured">Select Pass</a>
-          </div>
-
-          <div class="tariff-item">
-            <div class="tariff-top">
-              <span class="tariff-badge">Team 5v5</span>
-              <h3 class="tariff-name">Boot Camp Pass</h3>
-              <p class="tariff-desc">Private soundproof room configured for team scrims.</p>
-              <div class="tariff-price">18 000 ₸ <span>/ 5 hours</span></div>
-              <ul class="tariff-features">
-                <li>5 Isolated Stations</li>
-                <li>Coach tactical analysis board</li>
-                <li>Dedicated 10G LAN line</li>
-                <li>Personal attendant</li>
-              </ul>
-            </div>
-            <a href="booking.html" class="tariff-btn">Select Pass</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section-pad">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-lg-8">
-            <div class="text-center mb-4">
-              <h2 class="section-title">Billing Rules &amp; FAQ</h2>
-              <p class="text-muted-nx">Common questions about balance, reservations, and gear.</p>
-            </div>
-
-            <div class="accordion" id="faqAccordion">
-              <div class="accordion-item glass border-0 mb-3">
-                <h3 class="accordion-header" id="headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    How does balance retention and reservation work?
-                  </button>
-                </h3>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-muted-nx">
-                    Any remaining time automatically credits to your personal club profile and never expires. Stations booked online are held for 15 minutes past the start time before being released.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item glass border-0 mb-3">
-                <h3 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Can I bring my own mouse, keyboard, and in-ear monitors?
-                  </button>
-                </h3>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-muted-nx">
-                    Yes. Every station features front-facing USB hubs and 3.5mm audio jacks on the desk surface for instantaneous plug-and-play without touching PC chassis.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item glass border-0 mb-3">
-                <h3 class="accordion-header" id="headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    What are the age policies for overnight passes?
-                  </button>
-                </h3>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-muted-nx">
-                    Night marathon passes (22:00 – 08:00) require visitors to be at least 18 years old. Valid photo identification must be presented at the check-in reception.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="nx-footer">
-    <div class="container text-center text-md-between d-md-flex align-items-center">
-      <p class="mb-0 text-muted-nx">&copy; 2026 REQUIEM. All rights reserved.</p>
-      <div class="mt-2 mt-md-0">
-        <a href="pricing.html" class="me-3">Tariffs</a>
-        <a href="tournaments.html" class="me-3">Tournaments</a>
-        <a href="booking.html">Booking</a>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <nav class="navbar navbar-expand-lg site-nav sticky-top" aria-label="Main navigation">
+    <div class="container">
+      <a class="brand" href="index.html"><svg viewBox="0 0 22 30" aria-hidden="true"><path d="M2 29V11a9 9 0 0 1 18 0v18z" fill="none" stroke="#f2a950" stroke-width="2"/><circle cx="11" cy="20" r="3" fill="#f2a950"/></svg><span>Requiem</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <form class="site-search" role="search">
+          <label class="visually-hidden" for="globalSearch">Search the site</label>
+          <input type="search" id="globalSearch" class="form-control form-control-sm" placeholder="Search games, tournaments, FAQ" autocomplete="off" aria-controls="searchPanel" aria-expanded="false">
+          <div class="search-panel" id="searchPanel" hidden></div>
+        </form>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="zones.html">Zones</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="pricing.html">Prices</a></li>
+          <li class="nav-item"><a class="nav-link" href="tournaments.html">Tournaments</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+  </nav>
+</header>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<main id="main">
+
+  <section class="page-head has-bg" aria-labelledby="pricing-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <h1 id="pricing-hero">Prices, bar menu and FAQ</h1>
+      <p class="lead">Clear rates, no hidden fees. Unspent time stays on your account and never expires.</p>
+    </div>
+  </section>
+
+  <div class="subnav" role="navigation" aria-label="On this page">
+    <div class="container">
+      <a href="#tariffs">Passes</a><a href="#finder">Pass finder</a><a href="#menu">Bar menu</a><a href="#faq">FAQ</a>
+    </div>
+  </div>
+
+  <section class="section-tight" id="tariffs" aria-labelledby="passes-title">
+    <div class="container">
+      <h2 id="passes-title" class="mb-4">Choose a pass</h2>
+      <div class="row g-4" id="passGrid"></div>
+    </div>
+  </section>
+
+  <section class="section band mt-4" id="finder" aria-labelledby="calc-title">
+    <div class="container">
+      <h2 id="calc-title">Find the cheapest way to play</h2>
+      <p class="muted mb-4">Tell us how long you want to stay. We compare every pass and highlight the best one above.</p>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="panel calc">
+            <div class="mb-4">
+              <label class="form-label d-flex justify-content-between" for="calcHours"><span>Session length</span><span id="calcHoursOut" class="text-warning-emphasis" style="color:var(--candle)">3 hours</span></label>
+              <input type="range" class="form-range" id="calcHours" min="1" max="12" value="3" step="1">
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6"><label class="form-label" for="calcWho">Who is playing</label><select class="form-select" id="calcWho"><option value="solo">Just me</option><option value="team">A team of 5</option></select></div>
+              <div class="col-sm-6"><label class="form-label" for="calcWhen">When do you start</label><select class="form-select" id="calcWhen"><option value="day">During the day</option><option value="night">At 22:00 or later</option></select></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="calc-out" aria-live="polite">
+            <p class="muted mb-1">Best option</p>
+            <h3 id="calcName" class="mb-1">3-Hour Boost</h3>
+            <div class="total" id="calcTotal">2 400 ₸</div>
+            <p class="saving mt-2 mb-0" id="calcSaving"></p>
+            <ul id="calcList"></ul>
+            <a href="booking.html" class="btn btn-candle mt-3" id="calcBook">Book this pass</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="menu" aria-labelledby="menu-title">
+    <div class="container">
+      <h2 id="menu-title">Bar menu</h2>
+      <p class="muted mb-4">Build a tray and we bring it to your station. Pay when it arrives.</p>
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="row g-3 mb-3 align-items-end">
+            <div class="col-md-6"><label class="form-label" for="menuSearch">Search the menu</label><input type="search" class="form-control" id="menuSearch" placeholder="Try coffee or burger" autocomplete="off"></div>
+            <div class="col-md-6"><div class="d-flex flex-wrap gap-2" id="menuChips" role="group" aria-label="Menu categories"></div></div>
+          </div>
+          <div class="row g-3" id="menuGrid"></div>
+        </div>
+        <div class="col-lg-4" id="tray">
+          <aside class="panel tray" aria-label="Your tray">
+            <h3 class="mb-1">Your tray</h3>
+            <p class="muted small mb-2"><span id="trayCount">0</span> items</p>
+            <div id="trayLines"></div>
+            <div class="tray-total"><span>Total</span><b id="trayTotal">0 ₸</b></div>
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-candle" id="traySend" disabled>Send to my station</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="trayClear" disabled>Empty the tray</button>
+            </div>
+            <div class="order-status mt-4" id="orderStatus" hidden>
+              <h4 class="h5 mb-2">Orders for your station</h4>
+              <div id="orderList" aria-live="polite"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 id="faq-title">Billing rules and FAQ</h2>
+          <p class="muted mb-4">Search the answers before you call the desk.</p>
+          <div class="toolbar" style="grid-template-columns: 1fr;">
+            <div class="row g-3">
+              <div class="col-md-8"><label class="form-label" for="faqSearch">Search questions</label><input type="search" class="form-control" id="faqSearch" placeholder="Try cancel, ID or payment" autocomplete="off"></div>
+              <div class="col-md-4"><label class="form-label" for="faqTopic">Topic</label><select class="form-select" id="faqTopic"><option value="all">All topics</option></select></div>
+            </div>
+          </div>
+          <p class="result-line" id="faqCount" aria-live="polite"></p>
+          <div id="faqList" data-fold-group></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+      <div>
+        <a class="brand" href="index.html"><svg viewBox="0 0 22 30" aria-hidden="true"><path d="M2 29V11a9 9 0 0 1 18 0v18z" fill="none" stroke="#f2a950" stroke-width="2"/><circle cx="11" cy="20" r="3" fill="#f2a950"/></svg><span>Requiem</span></a>
+        <p class="muted mt-2 mb-0">Mangilik El Ave, 60/1, Astana. Open 24/7.</p>
+      </div>
+      <ul class="links align-self-md-center">
+        <li><a href="zones.html">Zones</a></li>
+        <li><a href="pricing.html">Prices</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <p class="credit">&copy; 2026 Requiem. Built with Bootstrap 5, Bootstrap Icons, jQuery and Google Fonts.</p>
+  </div>
+</footer>
+
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="orderForm" novalidate>
+        <div class="modal-header">
+          <h2 class="modal-title h4" id="orderTitle">Send to your station</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="muted small" id="orderSummary"></p>
+          <div class="mb-3">
+            <label for="ordPick" class="form-label">Your reservation in this browser</label>
+            <select class="form-select" id="ordPick"><option value="">Choose a reservation</option></select>
+          </div>
+          <div class="mb-3">
+            <label for="ordCode" class="form-label">Reservation code</label>
+            <input type="text" class="form-control" id="ordCode" name="code" placeholder="RQ-XXXXX" autocomplete="off" aria-describedby="err-ordCode" aria-invalid="false">
+            <div class="field-error" id="err-ordCode"></div>
+          </div>
+          <div class="mb-3">
+            <label for="ordNote" class="form-label">Note for the bar <span class="opt">(optional)</span></label>
+            <input type="text" class="form-control" id="ordNote" name="note" placeholder="Less ice, no sugar" aria-describedby="err-ordNote" aria-invalid="false">
+            <div class="field-error" id="err-ordNote"></div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="ordConfirm" name="confirm" aria-describedby="err-ordConfirm" aria-invalid="false">
+            <label class="form-check-label" for="ordConfirm">Add these items to my session bill. I pay at reception.</label>
+            <div class="field-error" id="err-ordConfirm"></div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-ghost btn-sm" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-candle">Send order</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/orders.js"></script>
 </body>
 </html>

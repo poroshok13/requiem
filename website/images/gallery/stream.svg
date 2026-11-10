@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="A camera, a microphone and a ring light in a streaming studio">
+<defs>
+<radialGradient id="g" cx="50%" cy="100%" r="80%"><stop offset="0" stop-color="#a99bd6" stop-opacity=".55"/><stop offset="1" stop-color="#a99bd6" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="600" fill="#14101a"/>
+<circle cx="90" cy="80" r="1.6" fill="#ebe3d3" opacity=".5"/><circle cx="160" cy="200" r="1.6" fill="#ebe3d3" opacity=".5"/><circle cx="120" cy="360" r="1.6" fill="#ebe3d3" opacity=".5"/><circle cx="700" cy="90" r="1.6" fill="#ebe3d3" opacity=".5"/><circle cx="650" cy="230" r="1.6" fill="#ebe3d3" opacity=".5"/><circle cx="720" cy="400" r="1.6" fill="#ebe3d3" opacity=".5"/><circle cx="60" cy="500" r="1.6" fill="#ebe3d3" opacity=".5"/><circle cx="745" cy="520" r="1.6" fill="#ebe3d3" opacity=".5"/><circle cx="300" cy="60" r="1.6" fill="#ebe3d3" opacity=".5"/><circle cx="520" cy="40" r="1.6" fill="#ebe3d3" opacity=".5"/>
+<path d="M170 570V270A230 230 0 0 1 630 270V570Z" fill="#1d1724" stroke="#3f3449" stroke-width="3"/>
+<path d="M170 570V270A230 230 0 0 1 630 270V570Z" fill="url(#g)"/>
+<path d="M400 40V570" stroke="#ebe3d3" stroke-opacity=".08" stroke-width="2"/>
+<rect x="120" y="570" width="560" height="14" fill="#2a2133"/>
+<rect x="270" y="370" width="110" height="72" rx="8" fill="#2a2133" stroke="#a99bd6" stroke-width="3"/><circle cx="325" cy="406" r="22" fill="#14101a" stroke="#a99bd6" stroke-width="3"/><circle cx="325" cy="406" r="9" fill="#a99bd6" opacity=".6"/><rect x="312" y="442" width="26" height="60" fill="#3f3449"/><circle cx="520" cy="360" r="50" fill="none" stroke="#f2a950" stroke-width="8"/><circle cx="520" cy="360" r="28" fill="#f2a950" opacity=".2"/><rect x="514" y="410" width="12" height="96" fill="#3f3449"/><rect x="446" y="440" width="22" height="50" rx="11" fill="#2a2133" stroke="#b9aec3" stroke-width="2"/><path d="M436 470a21 21 0 0 0 42 0" fill="none" stroke="#b9aec3" stroke-width="2"/>
+</svg>
