@@ -20,18 +20,18 @@ REQ.passes = [
 ];
 
 REQ.games = [
-  { title: 'Counter-Strike 2', genre: 'Shooter', mode: '5v5', platform: 'PC', zone: 'standard', fps: 400 },
-  { title: 'Valorant', genre: 'Shooter', mode: '5v5', platform: 'PC', zone: 'standard', fps: 500 },
-  { title: 'Dota 2', genre: 'MOBA', mode: '5v5', platform: 'PC', zone: 'standard', fps: 240 },
-  { title: 'League of Legends', genre: 'MOBA', mode: '5v5', platform: 'PC', zone: 'standard', fps: 300 },
-  { title: 'Rocket League', genre: 'Sports', mode: '3v3', platform: 'PC', zone: 'standard', fps: 300 },
-  { title: 'Apex Legends', genre: 'Battle Royale', mode: 'Squad', platform: 'PC', zone: 'comfort', fps: 220 },
-  { title: 'Fortnite', genre: 'Battle Royale', mode: 'Squad', platform: 'PC', zone: 'comfort', fps: 260 },
-  { title: 'Forza Horizon 5', genre: 'Racing', mode: 'Solo', platform: 'PC', zone: 'comfort', fps: 144 },
-  { title: 'Call of Duty: Warzone', genre: 'Battle Royale', mode: 'Squad', platform: 'PC', zone: 'vip', fps: 170 },
-  { title: 'Cyberpunk 2077', genre: 'RPG', mode: 'Solo', platform: 'PC', zone: 'vip', fps: 120 },
-  { title: 'Tekken 8', genre: 'Fighting', mode: '1v1', platform: 'PS5', zone: 'lounge', fps: 60 },
-  { title: 'EA FC 26', genre: 'Sports', mode: '1v1', platform: 'PS5', zone: 'lounge', fps: 60 }
+  { title: 'Counter-Strike 2', cover: 'images/games/cs2.jpg', genre: 'Shooter', mode: '5v5', platform: 'PC', zone: 'standard', fps: 400 },
+  { title: 'Valorant', cover: 'images/games/valorant.jpg', genre: 'Shooter', mode: '5v5', platform: 'PC', zone: 'standard', fps: 500 },
+  { title: 'Dota 2', cover: 'images/games/dota2.jpg', genre: 'MOBA', mode: '5v5', platform: 'PC', zone: 'standard', fps: 240 },
+  { title: 'League of Legends', cover: 'images/games/lol.jpg', genre: 'MOBA', mode: '5v5', platform: 'PC', zone: 'standard', fps: 300 },
+  { title: 'Rocket League', cover: 'images/games/rocket-league.jpg', genre: 'Sports', mode: '3v3', platform: 'PC', zone: 'standard', fps: 300 },
+  { title: 'Apex Legends', cover: 'images/games/apex.jpg', genre: 'Battle Royale', mode: 'Squad', platform: 'PC', zone: 'comfort', fps: 220 },
+  { title: 'Fortnite', cover: 'images/games/fortnite.jpg', genre: 'Battle Royale', mode: 'Squad', platform: 'PC', zone: 'comfort', fps: 260 },
+  { title: 'Forza Horizon 5', cover: 'images/games/forza-horizon-5.jpg', genre: 'Racing', mode: 'Solo', platform: 'PC', zone: 'comfort', fps: 144 },
+  { title: 'Call of Duty: Warzone', cover: 'images/games/warzone.jpg', genre: 'Battle Royale', mode: 'Squad', platform: 'PC', zone: 'vip', fps: 170 },
+  { title: 'Cyberpunk 2077', cover: 'images/games/cyberpunk-2077.jpg', genre: 'RPG', mode: 'Solo', platform: 'PC', zone: 'vip', fps: 120 },
+  { title: 'Tekken 8', cover: 'images/games/tekken-8.jpg', genre: 'Fighting', mode: '1v1', platform: 'PS5', zone: 'lounge', fps: 60 },
+  { title: 'EA FC 26', cover: 'images/games/ea-fc-26.jpg', genre: 'Sports', mode: '1v1', platform: 'PS5', zone: 'lounge', fps: 60 }
 ];
 
 REQ.events = [
@@ -100,6 +100,12 @@ REQ.team = [
 
 REQ.heroScenes = ['images/hero/shooter.svg', 'images/hero/moba.svg', 'images/hero/fighting.svg', 'images/hero/racing.svg'];
 
+// Favourites belong to an account: each logged-in email gets its own list; guests share one.
+REQ.favKey = function () {
+  var me = REQ.store.get('requiem.session', null);
+  return me ? 'requiem.favorites:' + me : 'requiem.favorites';
+};
+
 REQ.store = {
   get: function (key, fallback) {
     try {
@@ -108,7 +114,10 @@ REQ.store = {
     } catch (err) { return fallback; }
   },
   set: function (key, value) {
-    try { localStorage.setItem(key, JSON.stringify(value)); } catch (err) { return; }
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+      return true;
+    } catch (err) { return false; }  // storage can be blocked, e.g. by browser privacy settings
   }
 };
 

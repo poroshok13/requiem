@@ -1,6 +1,9 @@
 $(function () {
-  var favKey = 'requiem.favorites';
+  var favKey = REQ.favKey();
   var favs = REQ.store.get(favKey, []);
+  // a link from the profile (zones.html?game=Title) opens the library already filtered to that game
+  var wanted = new URLSearchParams(window.location.search).get('game');
+  if (wanted) $('#gameSearch').val(wanted);
   var zoneName = function (id) {
     if (id === 'lounge') return 'PS5 Lounge';
     return REQ.zones.filter(function (z) { return z.id === id; })[0].name;
@@ -43,6 +46,7 @@ $(function () {
       var card = $('<article class="panel game-card lit"></article>');
       var head = $('<div class="game-head"></div>').append($('<h3></h3>').text(g.title));
       head.append($('<button type="button" class="fav"></button>').attr('data-title', g.title).attr('aria-pressed', String(on)).attr('aria-label', (on ? 'Remove ' : 'Add ') + g.title + (on ? ' from' : ' to') + ' my list').html('<i class="bi ' + (on ? 'bi-heart-fill' : 'bi-heart') + '" aria-hidden="true"></i>'));
+      card.append($('<img class="game-cover" alt="" width="480" height="300" loading="lazy">').attr('src', g.cover).attr('alt', 'Cover illustration for ' + g.title));
       card.append(head);
       var tags = $('<div class="tags"></div>');
       tags.append($('<span class="tag"></span>').text(g.genre));

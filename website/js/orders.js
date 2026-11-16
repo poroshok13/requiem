@@ -3,10 +3,7 @@
 $(function () {
   if (!$('#orderModal').length) return;
   var modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('orderModal'));
-  var MIN = 60000;
   var HOUR = 3600000;
-  var PREP_TIME = 10; // minutes, the same promise as the FAQ
-  var STEPS = ['Received', 'Preparing', 'On the way', 'Delivered'];
   var payload = null;
   var sending = false;
 
@@ -93,7 +90,7 @@ $(function () {
     $(document).trigger('tray:sent');
     payload = null;
     render();
-    notify('Order ' + order.id + ' is on its way to ' + order.seat + '. About ' + PREP_TIME + ' minutes.');
+    notify('Order ' + order.id + ' sent to ' + order.seat + '.');
     setTimeout(function () { sending = false; }, 600);
   });
 
@@ -101,26 +98,18 @@ $(function () {
     var orders = REQ.store.get('requiem.orders', []);
     $('#orderStatus').prop('hidden', !orders.length);
     var box = $('#orderList').empty();
-    orders.slice(0, 3).forEach(function (o) {
-      var elapsed = (Date.now() - o.created) / MIN;
-      var stage = elapsed < 2 ? 0 : elapsed < 6 ? 1 : elapsed < PREP_TIME ? 2 : 3;
-      var left = Math.max(0, Math.ceil(PREP_TIME - elapsed));
-      var percent = Math.min(100, Math.round((elapsed / PREP_TIME) * 100));
+    orders.forEach(function (o) {
       var row = $('<div class="order-row"></div>');
       row.append($('<div class="d-flex justify-content-between"></div>')
         .append($('<b></b>').text(o.id + ' · ' + o.seat))
         .append($('<span class="small muted"></span>').text(REQ.money(o.total))));
-      var steps = $('<ol class="order-steps"></ol>');
-      STEPS.forEach(function (name, i) {
-        steps.append($('<li></li>').toggleClass('done', i < stage).toggleClass('now', i === stage).text(name));
-      });
-      row.append(steps);
-      row.append('<div class="meter ' + (stage === 3 ? 'ok' : 'mid') + '" role="img" aria-label="' + percent + ' percent done"><i style="width:' + percent + '%"></i></div>');
-      row.append($('<p class="small muted mb-0"></p>').text(stage === 3 ? 'Delivered to your desk.' : STEPS[stage] + ', about ' + left + ' min left.'));
+      var items = o.lines.map(function (l) { return l.qty + ' x ' + l.name; }).join(', ');
+      row.append($('<p class="small muted mb-0"></p>').text(items));
+      if (o.note) row.append($('<p class="small muted mb-0"></p>').text('Note: ' + o.note));
+      row.append($('<p class="small muted mb-0"></p>').text('Sent ' + new Date(o.created).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })));
       box.append(row);
     });
   };
 
   render();
-  setInterval(render, 15000);
 });

@@ -1,8 +1,11 @@
 $(function () {
+  var lightSrc = function (src) { return src.replace('images/gallery/', 'images/gallery/light/'); };
+  var isLight = function () { return document.documentElement.getAttribute('data-theme') === 'light'; };
   var grid = $('#galleryGrid');
   REQ.gallery.forEach(function (g, i) {
     var btn = $('<button type="button"></button>').attr('data-i', i).attr('aria-label', 'Open photo: ' + g.caption);
-    btn.append($('<img loading="lazy" width="800" height="600">').attr('src', g.src).attr('alt', g.alt));
+    btn.append($('<img class="g-dark" loading="lazy" width="800" height="600">').attr('src', g.src).attr('alt', g.alt));
+    btn.append($('<img class="g-light" loading="lazy" width="800" height="600">').attr('src', lightSrc(g.src)).attr('alt', g.alt));
     btn.append($('<span></span>').text(g.caption));
     grid.append(btn);
   });
@@ -20,7 +23,7 @@ $(function () {
   var fade = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 250;
   var fill = function (i) {
     index = (i + REQ.gallery.length) % REQ.gallery.length;
-    $('#lbImg').attr('src', REQ.gallery[index].src).attr('alt', REQ.gallery[index].alt);
+    $('#lbImg').attr('src', isLight() ? lightSrc(REQ.gallery[index].src) : REQ.gallery[index].src).attr('alt', REQ.gallery[index].alt);
     $('#lbCap').text(REQ.gallery[index].caption + ' (' + (index + 1) + ' of ' + REQ.gallery.length + ')');
   };
   var open = function (i, from) {

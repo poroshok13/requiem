@@ -12,7 +12,7 @@
   --glass: #7fb9cf;
   --lilac: #a99bd6;
   --on-candle: #1a1209;
-  --candle-hi: var(--candle-hi);
+  --candle-hi: #ffc27a;
   --crypt-rgb: 20 16 26;
   --shine: 235 227 211;
   --nav-bg: rgba(20, 16, 26, 0.94);
@@ -42,10 +42,10 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .display-serif {
+h1, h2, h3, h4, .h1, .h2, .h3, .h4, .display-serif {
   font-family: 'IM Fell English', Georgia, serif;
   font-weight: 400;
-  color: var(--ash);
+  color: var(--ash);  /* also the Bootstrap .h3/.h4 classes, which otherwise take Bootstrap's blue */
   line-height: 1.1;
   letter-spacing: 0;
 }
@@ -463,8 +463,8 @@ fieldset.seats legend { float: none; width: auto; font-size: 1rem; font-weight: 
 .gallery span { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.4rem 0.8rem 0.6rem; background: linear-gradient(transparent, rgba(14, 10, 20, 0.92)); font-size: 0.93rem; text-align: left; color: #ebe3d3; }
 
 .lightbox { display: none; position: fixed; inset: 0; z-index: 1900; background: rgba(10, 7, 14, 0.94); align-items: center; justify-content: center; padding: 1rem; }
-.lightbox figure { margin: 0; max-width: min(900px, 100%); text-align: center; }
-.lightbox img { max-width: 100%; max-height: 72vh; border: 1px solid var(--line); border-radius: var(--radius); }
+.lightbox figure { margin: 0; width: min(1000px, 92vw); text-align: center; }
+.lightbox img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; max-height: 78vh; object-fit: contain; border: 1px solid var(--line); border-radius: var(--radius); background: var(--vault); }
 .lightbox figcaption { margin-top: 0.8rem; color: #b9aec3; }
 .lb-btn { position: absolute; background: #1d1724; border: 1px solid #3f3449; color: #ebe3d3; width: 46px; height: 46px; border-radius: 50%; font-size: 1.3rem; transition: all 0.2s ease; }
 .lb-btn:hover { border-color: var(--candle); color: var(--candle); }
@@ -530,12 +530,12 @@ fieldset.seats legend { float: none; width: auto; font-size: 1rem; font-weight: 
 .has-bg { position: relative; overflow: hidden; }
 .has-bg > .container { position: relative; z-index: 1; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-.hero-bg .layer { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1); }
-.hero-bg .layer.on { opacity: 0.6; transform: scale(1.12); transition: opacity 1.4s ease, transform 8s linear; }
-.hero-bg .layer.leaving { opacity: 0; transform: scale(1.12); transition: opacity 1.4s ease; }
-@media (prefers-reduced-motion: reduce) { .hero-bg .layer.on { transform: scale(1); transition: none; } }
+.hero-bg .layer { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; }
+.hero-bg .layer.on { opacity: 0.6; transition: opacity 1.4s ease; }
+.hero-bg .layer.leaving { opacity: 0; transition: opacity 1.4s ease; }
 .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--crypt) 15%, rgb(var(--crypt-rgb) / 0.55) 60%, rgb(var(--crypt-rgb) / 0.85)); }
 .bg-toggle { position: absolute; right: 1rem; bottom: 0.7rem; z-index: 2; }
+.page-head.has-toggle { padding-bottom: 4rem; }  /* leaves room for the pause button under the notice */
 
 .slider { position: relative; max-width: 920px; margin: 0 auto; }
 .slider-stage { position: relative; border: 1px solid var(--line); border-radius: var(--radius); background: var(--vault); overflow: hidden; touch-action: pan-y; }
@@ -556,21 +556,57 @@ fieldset.seats legend { float: none; width: auto; font-size: 1rem; font-weight: 
 
 .site-nav .nav-link { padding: 0.55rem 0.7rem; }
 
-.plan-wrap { background: var(--vault); border: 1px solid var(--line); border-radius: var(--radius); padding: 0.8rem; }
+.plan-wrap {
+  background: radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--altar) 60%, var(--vault)), var(--vault));
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 0.9rem;
+  box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.6);
+}
 .plan { display: block; width: 100%; height: auto; }
+
+/* the hall: walls and a faint dotted floor */
+.hall-floor { fill: color-mix(in srgb, var(--altar) 45%, var(--vault)); stroke: color-mix(in srgb, var(--line) 80%, transparent); stroke-width: 2; }
+.floor-dot { fill: var(--line); opacity: 0.35; }
+.hall-grid { pointer-events: none; }
+
+/* rooms */
 .room { cursor: pointer; outline: none; }
-.room rect { fill: var(--altar); stroke: var(--line); stroke-width: 2; transition: fill 0.2s ease, stroke 0.2s ease, opacity 0.2s ease; }
-.room text { fill: var(--ash); font-family: 'Hanken Grotesk', sans-serif; font-size: 17px; font-weight: 600; pointer-events: none; }
-.room .sub { fill: var(--dim); font-size: 13px; font-weight: 400; }
-.room.t-standard rect { fill: color-mix(in srgb, var(--sage) 22%, var(--altar)); }
-.room.t-comfort rect { fill: color-mix(in srgb, var(--glass) 22%, var(--altar)); }
-.room.t-vip rect { fill: color-mix(in srgb, var(--candle) 22%, var(--altar)); }
-.room.t-bootcamp rect { fill: color-mix(in srgb, var(--ember) 22%, var(--altar)); }
-.room.t-stream rect { fill: color-mix(in srgb, var(--lilac) 22%, var(--altar)); }
-.room:hover rect { stroke: var(--candle); }
-.room:focus-visible rect { stroke: var(--candle); stroke-width: 5; }
-.room.on rect { stroke: var(--candle); stroke-width: 4; }
-.room.dim { opacity: 0.25; }
+.room-body {
+  fill: color-mix(in srgb, var(--tint) 13%, var(--altar));
+  stroke: color-mix(in srgb, var(--tint) 38%, var(--line)); stroke-width: 1.5;
+  transition: fill 0.2s ease, stroke 0.2s ease, opacity 0.2s ease;
+}
+.room-stripe { fill: var(--tint); }
+.room-name { fill: var(--ash); font-family: 'Hanken Grotesk', sans-serif; font-size: 18px; font-weight: 700; pointer-events: none; }
+.room-count { fill: var(--tint); font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; font-weight: 700; pointer-events: none; }
+.room-icon { fill: none; stroke: var(--ash); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; pointer-events: none; transition: opacity 0.2s; }
+.room:hover .room-icon, .room.on .room-icon { opacity: 0.95; }
+.room-sub { fill: var(--dim); font-family: 'Hanken Grotesk', sans-serif; font-size: 13px; pointer-events: none; }
+.desk { fill: color-mix(in srgb, var(--tint) 62%, var(--altar)); }
+.room:hover .room-body { stroke: var(--candle); }
+.room:focus-visible .room-body { stroke: var(--candle); stroke-width: 4; }
+.room.on .room-body { stroke: var(--candle); stroke-width: 4; filter: drop-shadow(0 0 10px rgba(242, 169, 80, 0.35)); }
+.room.dim { opacity: 0.28; }
+
+/* the tint of each room type */
+.room.t-standard { --tint: var(--sage); }
+.room.t-comfort { --tint: var(--glass); }
+.room.t-vip { --tint: var(--candle); }
+.room.t-bootcamp { --tint: var(--ember); }
+.room.t-stream { --tint: var(--lilac); }
+.room.room-service { --tint: var(--dim); }
+
+/* legend under the plan */
+.plan-legend { display: flex; flex-wrap: wrap; gap: 0.45rem 1.1rem; margin: 0.9rem 0 0; font-size: 0.85rem; color: var(--dim); }
+.plan-legend span::before {
+  content: ""; display: inline-block; width: 0.85rem; height: 0.85rem; border-radius: 3px;
+  margin-right: 0.4rem; vertical-align: -1px; background: var(--sw);
+}
+.sw-standard { --sw: var(--sage); }
+.sw-comfort { --sw: var(--glass); }
+.sw-vip { --sw: var(--candle); }
+.sw-bootcamp { --sw: var(--ember); }
+.sw-stream { --sw: var(--lilac); }
+.sw-service { --sw: var(--dim); }
 .room-info { padding: 1.4rem; }
 .room-info h3 { margin-bottom: 0.4rem; }
 
@@ -739,7 +775,11 @@ button.stn.sel:not(.taken)::before { background: rgb(242 169 80 / 0.25); }
 .modal-header, .modal-footer { border-color: var(--line); }
 .modal-backdrop { --bs-backdrop-bg: #0a070e; }
 .drink-total { font-family: 'IM Fell English', Georgia, serif; font-weight: 400; font-size: 1.5rem; color: var(--candle); margin-left: 0.4rem; }
-#drinkList .tray-line:first-child { border-top: 0; }
+#drinkList .drink-item:first-child .tray-line { border-top: 0; }
+.drink-detail { display: grid; grid-template-columns: 140px 1fr; gap: 0.9rem; padding: 0.2rem 0 0.9rem; }
+.drink-photo { width: 140px; height: 90px; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); }
+.drink-info p { margin: 0; }
+@media (max-width: 480px) { .drink-detail { grid-template-columns: 1fr; } .drink-photo { width: 100%; height: auto; aspect-ratio: 16 / 10; } }
 
 /* ---------- Skeletons and reveal ---------- */
 .skel { position: relative; overflow: hidden; background: var(--vault); border: 1px solid var(--line); border-radius: var(--radius); }
@@ -845,10 +885,101 @@ body.modal-open .to-top { display: none !important; }
 .order-status { border-top: 1px solid var(--line); padding-top: 1rem; }
 .order-row { padding: 0.7rem 0; border-top: 1px solid var(--line); }
 .order-row:first-child { border-top: 0; padding-top: 0; }
-.order-steps { list-style: none; display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; padding: 0; margin: 0.5rem 0; font-size: 0.85rem; color: var(--dim); }
-.order-steps li { position: relative; padding-left: 1rem; }
-.order-steps li::before { content: ''; position: absolute; left: 0; top: 0.4rem; width: 0.55rem; height: 0.55rem; border-radius: 50%; border: 1px solid var(--line); }
-.order-steps li.done { color: var(--ash); }
-.order-steps li.done::before { background: var(--sage); border-color: var(--sage); }
-.order-steps li.now { color: var(--candle); font-weight: 600; }
-.order-steps li.now::before { background: var(--candle); border-color: var(--candle); }
+
+/* Game covers in the library */
+.game-card .game-cover { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 25%; border-radius: var(--radius); border: 1px solid var(--line); margin-bottom: 0.9rem; }
+
+/* Account forms */
+.form-success { color: var(--ash); border: 1px solid var(--sage); border-radius: var(--radius); padding: 0.6rem 0.9rem; background: rgba(127, 176, 140, 0.12); }
+
+/* Account button in the header, right of the theme switch */
+.nav-account {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  height: 2.5rem; padding: 0 1rem; border-radius: 999px;
+  background: var(--candle); color: var(--on-candle);
+  font-weight: 600; font-size: 0.92rem; text-decoration: none; white-space: nowrap;
+  box-shadow: 0 0 0 0 rgba(242, 169, 80, 0);
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
+}
+.nav-account .skull { flex: none; transition: transform 0.35s ease; }
+.nav-account:hover, .nav-account:focus-visible {
+  color: var(--on-candle); transform: translateY(-1px);
+  box-shadow: 0 6px 18px -4px rgba(242, 169, 80, 0.55);
+}
+.nav-account:hover .skull { transform: rotate(-12deg) scale(1.1); }
+.nav-account:focus-visible { outline: 2px solid var(--ash); outline-offset: 3px; }
+.nav-account.active { box-shadow: inset 0 0 0 2px var(--on-candle); }
+@media (prefers-reduced-motion: reduce) {
+  .nav-account, .nav-account .skull { transition: none; }
+  .nav-account:hover, .nav-account:focus-visible { transform: none; }
+  .nav-account:hover .skull { transform: none; }
+}
+
+/* Password reset panel on the account page */
+.reset-panel { border-top: 1px solid var(--line); padding-top: 1.25rem; }
+
+/* Menu pictures */
+.menu-card .menu-pic { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); margin-bottom: 0.9rem; }
+
+/* ---------- Zone cards: the card itself follows the arch ----------
+   Previously only the inner header was arched, so the square corners of the
+   card stuck out around it. Now the whole card (border included) is clipped
+   to the same arch curve, with the same radius as .arch (62% of its height). */
+.zone-card {
+  border-radius: 50% 50% var(--radius) var(--radius) / 6.82rem 6.82rem var(--radius) var(--radius);
+  overflow: hidden;
+}
+.zone-card .arch { border-radius: 0; box-shadow: none; }
+[data-theme="light"] .zone-card .arch { box-shadow: none; }
+
+/* ---------- Remove stray centre lines ---------- */
+.arch {
+  background:
+    radial-gradient(ellipse at 50% 105%, color-mix(in srgb, var(--tint) 45%, transparent), transparent 68%),
+    var(--altar);
+}
+[data-theme="light"] .arch {
+  background:
+    radial-gradient(ellipse at 50% 112%, color-mix(in srgb, var(--tint) 34%, #fffaf1), transparent 72%),
+    linear-gradient(180deg, color-mix(in srgb, var(--tint) 7%, #fffaf1), color-mix(in srgb, var(--tint) 16%, #fffaf1));
+}
+.hall {
+  background:
+    radial-gradient(ellipse at 50% 108%, rgba(242, 169, 80, 0.22), transparent 62%),
+    var(--vault);
+}
+
+/* ---------- Gallery: light variants in light theme ---------- */
+.gallery .g-light { display: none; }
+[data-theme="light"] .gallery .g-light { display: block; }
+[data-theme="light"] .gallery .g-dark { display: none; }
+[data-theme="light"] .gallery button { border-color: var(--line); background: var(--vault); }
+[data-theme="light"] .gallery span { background: linear-gradient(transparent, rgba(255, 250, 241, 0.96)); color: var(--ash); }
+
+/* ---------- Pass cards ----------
+   1) The filled button always belongs to the highlighted (.best) card.
+   2) Text scales with the card width (container query units), so the cards
+      look the same at any browser zoom / screen scale and descriptions
+      stay on one line instead of wrapping. */
+.pass.best .btn {
+  background: var(--candle);
+  border-color: var(--candle);
+  color: var(--on-candle);
+  font-weight: 700;
+}
+.pass.best .btn:hover, .pass.best .btn:focus-visible {
+  background: var(--candle-hi);
+  border-color: var(--candle-hi);
+  color: var(--on-candle);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(242, 169, 80, 0.28);
+}
+@supports (container-type: inline-size) {
+  .col-xl-3 > .pass, .col-md-6 > .pass { container-type: inline-size; padding: 1.2rem; }
+  .pass > p { font-size: clamp(0.78rem, 3.35cqw, 1rem); line-height: 1.5; }
+  .pass > h3 { font-size: clamp(1.05rem, 5.4cqw, 1.5rem); margin-bottom: 0.3rem; }
+  .pass .price { font-size: clamp(1.6rem, 8cqw, 2.4rem); }
+  .pass .price small { font-size: clamp(0.72rem, 3.1cqw, 0.9rem); }
+  .pass ul { font-size: clamp(0.78rem, 3.3cqw, 0.97rem); }
+  .pass .pass-tag { font-size: clamp(0.7rem, 3cqw, 0.85rem); }
+}

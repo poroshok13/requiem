@@ -1,6 +1,14 @@
 $(function () {
   var form = $('#contactForm');
   var locked = false;
+  // logged in: name, email and phone start with the account's details (they stay editable)
+  var signedIn = REQ.store.get('requiem.session', null);
+  var account = signedIn && REQ.store.get('requiem.users', []).filter(function (u) { return u.email === signedIn; })[0];
+  if (account) {
+    if (!$('#cName').val()) $('#cName').val(account.name);
+    if (!$('#cEmail').val()) $('#cEmail').val(account.email);
+    if (!$('#cPhone').val()) $('#cPhone').val(account.phone);
+  }
   var val = function (id) { return $('#' + id).val(); };
   var rules = {
     cName: function () {

@@ -10,7 +10,7 @@ $(function () {
     var ul = $('<ul></ul>');
     p.features.forEach(function (f) { ul.append($('<li></li>').text(f)); });
     card.append(ul);
-    card.append('<a class="btn ' + (p.id === 'night' ? 'btn-candle' : 'btn-ghost') + '" href="booking.html?pass=' + p.id + '">Select pass</a>');
+    card.append('<a class="btn ' + 'btn-ghost' + '" href="booking.html?pass=' + p.id + '">Select pass</a>');
     wrap.append(col.append(card));
   });
 
@@ -34,7 +34,7 @@ $(function () {
       options.push({ name: 'Standard Hour', total: hourly, note: hours + ' x ' + REQ.money(price('hour')) });
       options.push({ name: '3-Hour Boost', total: full * price('3hours') + rest * price('hour'), note: full + ' x Boost' + (rest ? ' + ' + rest + ' single hour' + (rest > 1 ? 's' : '') : '') });
       if (rest) options.push({ name: '3-Hour Boost', total: Math.ceil(hours / 3) * price('3hours'), note: Math.ceil(hours / 3) + ' x Boost, rounded up' });
-      if (when === 'night') {
+      if (when === 'night' && hours >= 10) {
         var extra = Math.max(0, hours - 10);
         options.push({ name: 'Night Marathon', total: price('night') + extra * price('hour'), note: '10 hours from 22:00' + (extra ? ' + ' + extra + ' extra hours' : '') });
       }

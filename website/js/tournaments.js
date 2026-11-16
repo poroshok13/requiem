@@ -10,12 +10,17 @@ $(function () {
 
   var base = new Date();
   base.setHours(0, 0, 0, 0);
-  var events = REQ.events.map(function (e) {
+  var fromData = REQ.events.map(function (e) {
     var d = new Date(base);
     d.setDate(d.getDate() + e.day);
     d.setHours(e.hour);
     return $.extend({}, e, { date: d });
   });
+  // tournaments added in admin.html are stored with an ISO date and time
+  var fromAdmin = REQ.store.get('requiem.events', []).map(function (e) {
+    return $.extend({}, e, { date: new Date(e.iso) });
+  });
+  var events = fromData.concat(fromAdmin);
 
   var games = ['All games'];
   events.forEach(function (e) { if (games.indexOf(e.game) === -1) games.push(e.game); });

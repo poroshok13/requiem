@@ -166,6 +166,7 @@ $(function () {
   var tools = $('<div class="nav-tools"></div>');
   var live = $('<a class="live-pill" href="index.html#hall"><span class="dot" aria-hidden="true"></span><span class="live-text"></span></a>').appendTo(tools);
   var themeBtn = $('<button type="button" class="theme-btn"></button>').appendTo(tools);
+  var account = $('<a class="nav-account" data-account href="account.html"><svg class="skull" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M12 2C7.6 2 4 5.6 4 10c0 2.6 1.3 4.9 3.3 6.3V19a1 1 0 0 0 1 1h1v2h2v-2h1v2h2v-2h1v2h2v-2h1a1 1 0 0 0 1-1v-2.7c2-1.4 3.3-3.7 3.3-6.3 0-4.4-3.6-8-8-8zM9 8.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 1 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 1 0 0-3zM12 13l-1 2h2z"/></svg><span class="account-label">Log in</span></a>').appendTo(tools);
   bar.find('.navbar-toggler').before(tools);
 
   var refresh = function () {
@@ -214,4 +215,20 @@ $(function () {
   $(window).on('load', aim);
   setTimeout(aim, 300);
   setTimeout(aim, 900);
+});
+
+/* Navigation account link: "Log in" for a guest, "Profile" for a logged-in visitor */
+$(function () {
+  var here = location.pathname.split('/').pop() || 'index.html';
+  var refreshAccount = function () {
+    var me = REQ.store.get('requiem.session', null);
+    var target = me ? 'profile.html' : 'account.html';
+    $('[data-account]').each(function () {
+      $(this).find('.account-label').text(me ? 'Profile' : 'Log in').end().attr('href', target)
+        .toggleClass('active', target === here)
+        .attr('aria-current', target === here ? 'page' : null);
+    });
+  };
+  refreshAccount();
+  $(document).on('account:changed', refreshAccount);
 });

@@ -137,7 +137,7 @@ $(function () {
 
   var today = new Date();
   $('#tDate').attr('min', today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0'));
-  var games = ['CS2', 'Dota 2', 'Valorant', 'EA FC 26', 'Tekken 8', 'Mortal Kombat 1'];
+  var games = REQ.games.map(function (g) { return g.title; });
   games.forEach(function (g) { $('#tGame').append($('<option></option>').val(g).text(g)); });
 
   var rules = {

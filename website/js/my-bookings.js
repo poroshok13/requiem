@@ -24,7 +24,10 @@ $(function () {
   };
 
   var render = function () {
-    var all = REQ.store.get('requiem.bookings', []).slice().reverse();
+    var me = REQ.store.get('requiem.session', null);
+    var all = REQ.store.get('requiem.bookings', []).filter(function (b) {
+      return !me || (b.email || '').toLowerCase() === me;  // logged in: only this account's reservations
+    }).slice().reverse();
     $('#mbCount').text(all.length
       ? all.length + (all.length === 1 ? ' reservation' : ' reservations') + ' saved in this browser. Free cancellation up to 1 hour before the session.'
       : 'Saved in this browser only.');

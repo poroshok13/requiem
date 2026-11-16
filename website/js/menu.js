@@ -21,6 +21,7 @@ $(function () {
     found.forEach(function (m) {
       var col = $('<div class="col-12 col-sm-6"></div>');
       var card = $('<article class="panel menu-card lit"></article>');
+      card.append($('<img class="menu-pic" width="480" height="300" loading="lazy">').attr('src', 'images/menu/' + m.id + '.jpg').attr('alt', 'Photo of ' + m.name));
       card.append($('<h3></h3>').text(m.name)).append($('<p></p>').text(m.desc));
       var bottom = $('<div class="bottom"></div>').append('<span class="price">' + REQ.money(m.price) + '</span>');
       bottom.append($('<button type="button" class="btn btn-ghost btn-sm add"></button>').attr('data-id', m.id).attr('aria-label', 'Add ' + m.name + ' to tray').html('<i class="bi bi-plus-lg" aria-hidden="true"></i> Add'));

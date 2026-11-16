@@ -358,13 +358,28 @@ $(function () {
 
   var drinkList = $('#drinkList');
   REQ.menu.forEach(function (m) {
+    var item = $('<div class="drink-item"></div>');
     var line = $('<div class="tray-line"></div>').attr('data-id', m.id);
-    line.append($('<span class="name"></span>').text(m.name).append($('<small class="d-block muted fw-normal"></small>').text(m.category + ', ' + REQ.money(m.price))));
+    var name = $('<span class="name"></span>').text(m.name).append($('<small class="d-block muted fw-normal"></small>').text(m.category + ', ' + REQ.money(m.price)));
+    var view = $('<button type="button" class="btn btn-ghost btn-sm drink-view"></button>').attr('aria-expanded', 'false').attr('aria-label', 'View ' + m.name).text('View');
+    name.append($('<span class="d-block mt-1"></span>').append(view));
+    line.append(name);
     var qty = $('<span class="qty"></span>');
     qty.append($('<button type="button" class="minus"></button>').attr('aria-label', 'Remove one ' + m.name).html('&minus;'));
     qty.append('<span class="n" aria-live="polite">0</span>');
     qty.append($('<button type="button" class="plus"></button>').attr('aria-label', 'Add one ' + m.name).text('+'));
-    drinkList.append(line.append(qty));
+    line.append(qty);
+    var detail = $('<div class="drink-detail" style="display: none"></div>')
+      .append($('<img class="drink-photo" width="480" height="300" loading="lazy">').attr('src', 'images/menu/' + m.id + '.jpg').attr('alt', 'Photo of ' + m.name))
+      .append($('<div class="drink-info"></div>').append($('<p class="mb-1"></p>').text(m.desc)).append($('<p class="small muted mb-0"></p>').text(m.category + ' · ' + REQ.money(m.price))));
+    drinkList.append(item.append(line, detail));
+  });
+  // "View" shows the photo and description of one item, under that item
+  drinkList.on('click', '.drink-view', function () {
+    var item = $(this).closest('.drink-item');
+    var open = item.find('.drink-detail').is(':visible');
+    item.find('.drink-detail').stop(true, true).slideToggle(180);
+    $(this).attr('aria-expanded', String(!open));
   });
 
   var paintDrinks = function () {
@@ -423,7 +438,6 @@ $(function () {
 
     locked = true;
     var total = summarize();
-    var addonNames = Object.keys(addons).filter(function (k) { return $('#' + k).is(':checked'); }).map(function (k) { return addons[k][0]; });
     var code = 'RQ-' + Math.random().toString(36).slice(2, 7).toUpperCase();
     var saved = REQ.store.get('requiem.bookings', []);
     var pass = REQ.passes.filter(function (p) { return p.id === val('pack'); })[0];
@@ -468,6 +482,14 @@ $(function () {
   if (wantTime && /^\d{1,2}$/.test(wantTime) && Number(wantTime) < 24) wantHour = String(Number(wantTime));
   if (rules.date()) { $('#date').val(''); }
   applyZone();
+  // logged in: the contact fields start with the account's details (they can still be edited)
+  var signedIn = REQ.store.get('requiem.session', null);
+  var account = signedIn && REQ.store.get('requiem.users', []).filter(function (u) { return u.email === signedIn; })[0];
+  if (account) {
+    if (!$('#fullName').val()) $('#fullName').val(account.name);
+    if (!$('#phone').val()) $('#phone').val(account.phone);
+    if (!$('#email').val()) $('#email').val(account.email);
+  }
   refreshTimes();
   if (wantHour !== null && $('#time option[value="' + wantHour + '"]').length) $('#time').val(wantHour);
   resetPicks();

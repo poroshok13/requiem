@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Games | Requiem</title>
-  <meta name="description" content="Search the Requiem game library by title, genre and platform and see which zone runs each game best.">
+  <title>Your profile | Requiem</title>
+  <meta name="description" content="Your Requiem profile: reservations, favourite games and log out.">
   
   <script src="js/theme.js"></script>
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
@@ -32,12 +32,12 @@
         </form>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="zones.html">Zones</a></li>
+          <li class="nav-item"><a class="nav-link" href="zones.html">Zones</a></li>
           <li class="nav-item"><a class="nav-link" href="pricing.html">Prices</a></li>
           <li class="nav-item"><a class="nav-link" href="tournaments.html">Tournaments</a></li>
           <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        </ul>
+</ul>
       </div>
     </div>
   </nav>
@@ -45,32 +45,62 @@
 
 <main id="main">
 
-  <section class="page-head has-bg" aria-labelledby="games-hero">
+  <section class="page-head has-bg" aria-labelledby="prof-hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container">
-      <h1 id="games-hero">Game library</h1>
-      <p class="lead">Every title is installed and updated daily. Find yours and see which zone runs it best.</p>
+      <h1 id="prof-hero">Your profile</h1>
+      <p class="lead">Your reservations and favourite games, kept in this browser.</p>
     </div>
   </section>
 
-  <section class="section-tight" aria-labelledby="games-title">
+  <section class="section-tight">
     <div class="container">
-      <h2 id="games-title" class="visually-hidden">Search the games</h2>
-      <div class="row g-3 mb-3">
-        <div class="col-md-6 col-lg-3"><label class="form-label" for="gameSearch">Search by title</label><input type="search" class="form-control" id="gameSearch" placeholder="Try Dota or Valorant" autocomplete="off"></div>
-        <div class="col-6 col-lg-2"><label class="form-label" for="gameGenre">Genre</label><select class="form-select" id="gameGenre"><option value="all">All genres</option></select></div>
-        <div class="col-6 col-lg-2"><label class="form-label" for="gamePlatform">Platform</label><select class="form-select" id="gamePlatform"><option value="all">All</option><option value="PC">PC</option><option value="PS5">PS5</option></select></div>
-        <div class="col-md-6 col-lg-3"><label class="form-label" for="gameSort">Sort by</label><select class="form-select" id="gameSort"><option value="title">Title A to Z</option><option value="fps">Highest fps</option><option value="genre">Genre</option></select></div>
-        <div class="col-md-6 col-lg-2 d-flex align-items-end pb-2"><div class="form-check"><input class="form-check-input" type="checkbox" id="onlyFav"><label class="form-check-label" for="onlyFav">My list (<span id="favCount">0</span>)</label></div></div>
+      <div class="panel p-4 p-md-5 mb-4" id="guest" hidden>
+        <h2 class="h3 mb-2">You are not logged in</h2>
+        <p class="muted mb-3">Log in to see your reservations and favourite games.</p>
+        <a class="btn btn-candle" href="account.html">Log in or sign up</a>
       </div>
-      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-        <p class="result-line mb-0" id="gameCount" aria-live="polite"></p>
-        <button type="button" class="btn btn-ghost btn-sm" id="gameReset">Reset filters</button>
+
+      <div id="memberArea" hidden>
+        <div class="panel p-4 p-md-5 mb-4">
+          <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+            <div>
+              <h2 class="h3 mb-1" id="pName"></h2>
+              <p class="muted mb-0" id="pEmail"></p>
+              <p class="muted small mb-0" id="pPhone"></p>
+            </div>
+            <button type="button" class="btn btn-ghost btn-sm" id="logoutBtn">Log out</button>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <section class="panel p-4 p-md-5 h-100" aria-labelledby="resTitle">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <h2 class="h4 mb-0" id="resTitle">Reservations <span class="muted small" id="resCount"></span></h2>
+                <button type="button" class="btn btn-ghost btn-sm" id="clearRes" hidden>Clear all</button>
+              </div>
+              <div id="resList" aria-live="polite"></div>
+            </section>
+          </div>
+          <div class="col-lg-6">
+            <section class="panel p-4 p-md-5 h-100" aria-labelledby="favTitle">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <h2 class="h4 mb-0" id="favTitle">Favourite games <span class="muted small" id="favCount"></span></h2>
+                <button type="button" class="btn btn-ghost btn-sm" id="clearFav" hidden>Clear all</button>
+              </div>
+              <div id="favList" aria-live="polite"></div>
+            </section>
+          </div>
+        </div>
+
+        <section class="panel p-4 p-md-5 mt-4" aria-labelledby="msgTitle">
+          <h2 class="h4 mb-3" id="msgTitle">Your messages <span class="muted small" id="msgCount"></span></h2>
+          <div id="msgList" aria-live="polite"></div>
+        </section>
       </div>
-      <div class="row g-3" id="gameList"></div>
     </div>
   </section>
-
 </main>
 
 <footer class="site-footer">
@@ -97,6 +127,6 @@
 <script src="js/data.js"></script>
 <script src="js/search.js"></script>
 <script src="js/main.js"></script>
-<script src="js/games.js"></script>
+<script src="js/profile.js"></script>
 </body>
 </html>
